@@ -1,0 +1,15 @@
+<div class="product-wrapper">
+  <div class="product-image-wrapper">
+    <img class="img-thumbnail" *ngIf="product.imageUrl" [src]="imageUrl()" />
+  </div>
+  <div class="product-text-wrapper">
+    <div class="header h6">{{ product.label }}</div>
+    <div class="description"> {{ product.description}} </div>
+    <div class="extra">Preis {{ product.price }} €</div>
+  </div>
+  <div class="product-actions-wrapper">
+    <button class="btn btn-primary">
+      <i class="bi bi-bag-plus"></i>
+    </button>
+  </div>
+</div>

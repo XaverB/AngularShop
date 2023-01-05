@@ -1,0 +1,9 @@
+.content-wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.cart-widget-wrapper {
+    align-self: flex-end;
+    align-items: flex-end;
+}
