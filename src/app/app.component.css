@@ -1,9 +1,10 @@
 .content-wrapper {
     width: 80%;
     margin: 0 auto;
+    padding-top: 80px;
 }
 
-.cart-widget-wrapper {
-    align-self: flex-end;
-    align-items: flex-end;
+.navbar.nav-center {
+    margin:0;
+    float:none;
 }

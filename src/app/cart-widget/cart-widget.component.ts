@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartStoreService } from '../shared/cart-store.service';
+import { CartService } from '../shared/cart.service';
+import { EventService } from '../shared/event.service';
+import { Cart } from '../shared/models/cart';
+import { Product } from '../shared/models/product';
+import { ProductCart } from '../shared/models/productcart';
 
 @Component({
   selector: 'app-cart-widget',
@@ -8,9 +13,16 @@ import { CartStoreService } from '../shared/cart-store.service';
 })
 export class CartWidgetComponent implements OnInit {
 
-  constructor(private cartStore: CartStoreService) { }
+  @Input() productCount: Number = 0;
+
+  constructor(private eventService: EventService, private cartService: CartService) {
+    this.cartService.cart$.subscribe(cart => this.productCount = cart.getProductCount());
+
+  }
 
   ngOnInit(): void {
   }
-
 }
+
+
+

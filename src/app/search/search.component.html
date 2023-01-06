@@ -1,0 +1,9 @@
+<div class="search">
+    <input class="form-control me-2 border-end-0 border rounded-pill" type="search" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." #searchTerm (keyup)="myKeyup.emit(searchTerm.value)" 
+        (keyup.enter)="filterList.emit(foundProducts)" />
+    <button class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" id="btnFilterList" type="submit" (click)="filterList.emit(foundProducts)"><i class="bi bi-search"></i></button>
+
+    <datalist id="datalistOptions">
+        <option *ngFor="let product of foundProducts" (click)="productSelected.emit(product)" [value]=product.label>{{ product.label }}</option>
+    </datalist>
+</div>

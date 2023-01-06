@@ -19,8 +19,15 @@ export class ProductStoreService {
 
   getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(
-      `/api/shop/${environment.shopId}/products`,
-      { headers: { 'appKey': `${environment.appKey}` } })
+      `/api/shop/${environment.shopId}/products`
+    )
+      .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
+  }
+
+  search(filter: String): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      `/api/shop/${environment.shopId}/products?filter=${filter}`
+    )
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
   }
 }

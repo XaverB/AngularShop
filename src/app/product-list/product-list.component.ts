@@ -21,7 +21,20 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchAllProducts();
+  }
+
+  private fetchAllProducts() {
     this.productStoreService.getAll().subscribe(res => this.products = res);
+  }
+
+  productInSearchSelected(product: Product) {
+    ;
+  }
+
+  filterList(products: Product[]) {
+    if (products.length) this.products = products;
+    else this.fetchAllProducts(); // empty search box
   }
 
 }
