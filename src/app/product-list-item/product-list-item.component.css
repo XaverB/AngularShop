@@ -1,10 +1,7 @@
 .product-wrapper {
     display: flex;
     gap: 10px;
-    margin: 5px;
     padding: 15px;
-    border: 1px rgb(170, 170, 170) solid;
-    background-color: antiquewhite;
     border-radius: 15px;
     max-height: 180px;
 }

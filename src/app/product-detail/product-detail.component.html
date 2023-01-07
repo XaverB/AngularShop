@@ -1,0 +1,33 @@
+<div class="product-details-wrapper container bg-light rounded shadow p-lg-5 p-md-3 p-sm-1">
+
+    <div class="row">
+        <div col="col">
+            <h1>{{ product.label}} </h1>
+        </div>
+        <div class="col">
+            <span class="badge bg-info">{{ product.price }}€</span>
+        </div>
+    </div>
+
+    <div class="justify-content-center row m-lg-5 m-md-3 m-sm-1">
+        <div class="col text-center align-self-center">
+            <img class="rounded img-fluid" [src]="imageUrl()" />
+        </div>
+    </div>
+
+    <div class="row">
+        <p>
+            {{ product.description }}
+        </p>
+    </div>
+
+    <div class="row justify-content-end">
+        <div class="product-details-actions-wrapper col-2">
+            <button class="btn btn-primary" (click)="addToShoppingCart()">
+                <i class="bi bi-bag-plus"></i>
+            </button>
+        </div>
+    </div>
+
+
+</div>

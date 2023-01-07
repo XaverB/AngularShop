@@ -15,6 +15,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddAppKeyInterceptorInterceptor } from './add-app-key-interceptor.interceptor';
 import { EventService } from './shared/event.service';
 import { SearchComponent } from './search/search.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartOverviewComponent } from './cart-overview/cart-overview.component';
+import { CartOverviewListComponent } from './cart-overview-list/cart-overview-list.component';
+import { CartOverviewListItemComponent } from './cart-overview-list-item/cart-overview-list-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { SearchComponent } from './search/search.component';
     ProductListComponent,
     ProductListItemComponent,
     CartWidgetComponent,
-    SearchComponent
+    SearchComponent,
+    ProductDetailComponent,
+    CartOverviewComponent,
+    CartOverviewListComponent,
+    CartOverviewListItemComponent
   ],
   imports: [
     BrowserModule,

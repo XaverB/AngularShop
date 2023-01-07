@@ -1,4 +1,4 @@
-<div class="product-wrapper">
+<div class="product-wrapper bg-light rounded shadow">
   <div class="product-image-wrapper">
     <img class="img-thumbnail" *ngIf="product.imageUrl" [src]="imageUrl()" />
   </div>
@@ -11,5 +11,8 @@
     <button class="btn btn-primary" (click)="addToShoppingCart()">
       <i class="bi bi-bag-plus"></i>
     </button>
+    <a class="btn btn-info" [routerLink]="product.id?.toString()">
+      <i class="bi bi-info-lg text-light"></i>
+    </a>
   </div>
 </div>

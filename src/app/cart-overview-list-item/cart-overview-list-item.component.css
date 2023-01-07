@@ -1,0 +1,12 @@
+.cart-overview-list-item-image-wrapper {
+    height: auto;
+    width: 100px;
+}
+
+.cart-overview-list-item-actions-wrapper {
+    flex: 1;
+}
+
+.cart-overview-list-item-actions-wrapper-item {
+    margin-left: auto;
+}

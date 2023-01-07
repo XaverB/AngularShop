@@ -19,15 +19,18 @@ export class ProductStoreService {
 
   getAll(): Observable<Product[]> {
     return this.http.get<Product[]>(
-      `/api/shop/${environment.shopId}/products`
-    )
+      `/api/shop/${environment.shopId}/products`)
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
   }
 
   search(filter: String): Observable<Product[]> {
     return this.http.get<Product[]>(
-      `/api/shop/${environment.shopId}/products?filter=${filter}`
-    )
+      `/api/shop/${environment.shopId}/products?filter=${filter}`)
+      .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
+  }
+
+  getById(id: number): Observable<Product> {
+    return this.http.get<Product>(`/api/product/${id}`)
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
   }
 }

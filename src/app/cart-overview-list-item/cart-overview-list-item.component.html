@@ -1,0 +1,30 @@
+<div class="cart-overview-list-item-wrapper card rounded d-flex flex-row gap-3 p-lg-3 p-sm-1">
+    <div class="cart-overview-list-item-image-wrapper">
+        <img [src]="imageUrl()" class="img-thumbnail" />
+    </div>
+
+    <div class="cart-overview-list-item-description-wrapper">
+        <div>
+            {{ product.label }}
+        </div>
+
+        <div>
+            Anzahl: {{ productCart.amount }}
+        </div>
+
+        <div>
+            Preis: {{ productCart.price }}
+        </div>
+    </div>
+
+    <div class="cart-overview-list-item-actions-wrapper d-flex align-items-end">
+        <div class="cart-overview-list-item-actions-wrapper-item btn-group-vertical">
+            <button class="btn btn-success">
+                <i class="bi bi-plus-lg"></i>
+            </button>
+            <button class="btn btn-danger">
+                <i class="bi bi-dash-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>
