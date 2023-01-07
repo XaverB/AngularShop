@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { JwksValidationHandler, OAuthErrorEvent, OAuthService } from 'angular-oauth2-oidc';
+import { AuthenticationService } from './shared/authentication.service';
+import { authConfig } from '../auth.config';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private authService: AuthenticationService, private oauthService: OAuthService) {
+    this.configureWithNewConfigApi();
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+
+  private configureWithNewConfigApi() {
+    this.oauthService.configure(authConfig);
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    
+    this.oauthService.events.subscribe(event => {
+      if (event instanceof OAuthErrorEvent) {
+        console.error(event);
+      } else {
+        console.warn(event);
+      }
+    });
+    
+  }
+
   title = 'xavers-shop';
 }

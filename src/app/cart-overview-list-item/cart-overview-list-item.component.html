@@ -4,7 +4,7 @@
     </div>
 
     <div class="cart-overview-list-item-description-wrapper">
-        <div>
+        <div class="lead">
             {{ product.label }}
         </div>
 
@@ -13,16 +13,16 @@
         </div>
 
         <div>
-            Preis: {{ productCart.price }}
+            Preis per Stück: {{ productCart.price }}
         </div>
     </div>
 
     <div class="cart-overview-list-item-actions-wrapper d-flex align-items-end">
         <div class="cart-overview-list-item-actions-wrapper-item btn-group-vertical">
-            <button class="btn btn-success">
+            <button class="btn btn-success" (click)="addProduct.emit(product)">
                 <i class="bi bi-plus-lg"></i>
             </button>
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" (click)="removeProduct.emit(product)">
                 <i class="bi bi-dash-lg"></i>
             </button>
         </div>

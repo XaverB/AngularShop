@@ -7,9 +7,9 @@ export class Cart {
         public id?: number,
         public customerId?: number | null,
         public sessionId?: string,
-        public price?: number,
-        public productCarts?: ProductCart[],
-        public discounts?: Discount[] | null) { };
+        public price: number = 0,
+        public productCarts: ProductCart[] = [],
+        public discounts: Discount[] = []) { };
 
     public getProductCount(): number {
         return this.productCarts
@@ -35,6 +35,7 @@ export class Cart {
         if (productCart) {
             console.debug(`addProductToCart: productCart for product (${product.id}) available => increasing amount by one.`);
             productCart.amount++;
+            this.price += productCart.price;
         } else {
             this.addNewProductCart(product);
         }
@@ -46,6 +47,23 @@ export class Cart {
         newProductCart.amount = 1;
         newProductCart.price = product.price!!;
         newProductCart.product = { ...product }
+        this.price += newProductCart.price;
         this.productCarts?.push(newProductCart);
+    }
+
+    /** Removes a product. Reduces the count by 1 if there are more than one of this product in this cart */
+    public removeProduct(product: Product) {
+        if (!this.productCarts) return;
+
+        const productCart = this.productCarts.find(p => p.product?.id == product?.id);
+        if (productCart && productCart.amount > 1) {
+            console.debug(`removeProduct: productCart for product (${product.id}) available => decreasing amount by one.`);
+            productCart.amount--;
+            this.price -= productCart.price;
+        } else {
+            this.price -= productCart?.price ?? 0;
+            const newProductCart = this.productCarts.filter(p => p.product?.id != product.id);
+            this.productCarts = newProductCart;
+        }
     }
 }

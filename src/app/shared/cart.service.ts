@@ -40,6 +40,17 @@ export class CartService {
     return this._Cart;
   }
 
+  public referenceCartAndCustomer(customerId: Number) {
+    if (this.cart.customerId) return;
+
+    // reference
+    this.cartStoreService.referenceCartWithCustomer(this.cart.sessionId!, customerId)
+      .subscribe(
+        // update cart from service
+        () => this.cartStoreService.getCartBySessionId(this.cart.sessionId!).pipe(res => this.cart = Object.assign(new Cart(), res))
+      );
+  }
+
   /**
  * Adds a product to the cart.
  * @param product 
@@ -54,6 +65,21 @@ export class CartService {
         // update local
         const newCart = Object.assign(new Cart(), this._Cart);
         newCart.addProduct(product);
+        this.cart = newCart;
+        this.persistCart();
+      }
+      );
+  }
+
+  public removeProduct(product: Product) {
+    // update service
+    this.cartStoreService.deleteProduct(
+      this.cart.sessionId!, product.id!, 1
+    )
+      .subscribe(_ => {
+        // update local
+        const newCart = Object.assign(new Cart(), this._Cart);
+        newCart.removeProduct(product);
         this.cart = newCart;
         this.persistCart();
       }

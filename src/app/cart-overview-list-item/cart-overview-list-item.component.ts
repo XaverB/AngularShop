@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Product } from '../shared/models/product';
 import { ProductCart } from '../shared/models/productcart';
@@ -12,6 +12,9 @@ export class CartOverviewListItemComponent implements OnInit {
 
   @Input() productCart: ProductCart = new ProductCart();
 
+  @Output() addProduct = new EventEmitter<Product>();
+  @Output() removeProduct = new EventEmitter<Product>();
+
   public get product(): Product {
     return this.productCart.product ?? new Product()
   }
@@ -24,5 +27,4 @@ export class CartOverviewListItemComponent implements OnInit {
   imageUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`${this.product.imageUrl}`)
   }
-
 }

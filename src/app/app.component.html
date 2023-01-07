@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Xaver's Shop</a>
+    <a class="navbar-brand" href="login" *ngIf="!isLoggedIn()">Login</a>
 
     <div class="cart-widget-wrapper">
       <app-cart-widget></app-cart-widget>

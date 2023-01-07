@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from '../shared/models/product';
 import { ProductCart } from '../shared/models/productcart';
 
 @Component({
@@ -9,6 +10,8 @@ import { ProductCart } from '../shared/models/productcart';
 export class CartOverviewListComponent implements OnInit {
 
   @Input() productCarts: ProductCart[] = []
+  @Output() addProduct = new EventEmitter<Product>();
+  @Output() removeProduct = new EventEmitter<Product>();
 
   constructor() { }
 

@@ -48,4 +48,14 @@ export class CartStoreService {
     return this.http.put<String>(`/api/cart/${sessionId}/product/${productId}?amount=${amount}`, {})
       .pipe(catchError(this.errorHandler));
   }
+
+  deleteProduct(sessionId: String, productId: Number, amount: Number): Observable<any> {
+    return this.http.delete<String>(`/api/cart/${sessionId}/product/${productId}?amount=${amount}`, {})
+      .pipe(catchError(this.errorHandler));
+  }
+
+  referenceCartWithCustomer(sessionId: String, customerId: Number): Observable<any> {
+    return this.http.put<String>(`/api/customer/${customerId}/cart/${sessionId}`, {})
+      .pipe(catchError(this.errorHandler));
+  }
 }

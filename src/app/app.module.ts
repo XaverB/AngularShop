@@ -19,6 +19,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { CartOverviewComponent } from './cart-overview/cart-overview.component';
 import { CartOverviewListComponent } from './cart-overview-list/cart-overview-list.component';
 import { CartOverviewListItemComponent } from './cart-overview-list-item/cart-overview-list-item.component';
+import { LoginComponent } from './login/login.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { CartOverviewListItemComponent } from './cart-overview-list-item/cart-ov
     ProductDetailComponent,
     CartOverviewComponent,
     CartOverviewListComponent,
-    CartOverviewListItemComponent
+    CartOverviewListItemComponent,
+    LoginComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { CartOverviewListItemComponent } from './cart-overview-list-item/cart-ov
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    OAuthModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -1,6 +1,15 @@
-<div class="container bg-light rounded shadow p-lg-5 p-md-3 p-sm-1">
+<div class="container bg-light container rounded shadow p-lg-5 p-md-3 p-sm-1">
     <h1>Cart</h1>
 
-    <app-cart-overview-list [productCarts]="cart.productCarts ?? []"></app-cart-overview-list>
-</div>
+    <app-cart-overview-list [productCarts]="cart.productCarts" (addProduct)="addProduct($event)"
+        (removeProduct)="removeProduct($event)"></app-cart-overview-list>
 
+    <div>
+        <strong>Preis: {{ cart.price | number : '.2-2' }}</strong>
+    </div>
+    <div>
+        <Button class="btn btn-success" (click)="createOrder()">
+            Bestellung kostenpflichtig abschließen
+        </Button>
+    </div>
+</div>

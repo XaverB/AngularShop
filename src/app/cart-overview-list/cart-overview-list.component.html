@@ -1,7 +1,8 @@
 <div class="cart-overview-list-wrapper">
 
-    <div class="cart-overview-list-item" *ngFor="let pc of productCarts">
-        <app-cart-overview-list-item [productCart]=pc ></app-cart-overview-list-item>
+    <div class="cart-overview-list-item row mt-3" *ngFor="let pc of productCarts">
+        <app-cart-overview-list-item [productCart]=pc 
+        (addProduct)="addProduct.emit($event)" (removeProduct)="removeProduct.emit($event)"></app-cart-overview-list-item>
     </div>
 
 </div>
