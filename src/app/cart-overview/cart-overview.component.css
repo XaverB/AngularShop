@@ -1,0 +1,28 @@
+.cart-product-info-discount-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.cart-product-info {
+
+}
+
+.cart-overview-discount-wrapper {
+
+}
+
+ /* @media only screen and (max-width: 1024px) {
+    .cart-product-info-discount-wrapper {
+
+        flex-direction: column-reverse;
+    }
+}  */
+
+@media only screen and (max-width: 768px) {
+    .cart-product-info-discount-wrapper {
+
+        flex-direction: column-reverse;
+    }
+    
+}

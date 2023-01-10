@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   submitForm() {
     if (this.returnTo) localStorage.setItem('returnUrl', this.returnTo);
-    else localStorage.setItem('returnUrl', 'home')
+    else localStorage.setItem('returnUrl', 'products')
     if (this.auth.login(this.returnTo)) {
       this.router.navigate([this.returnTo]);
     } else {

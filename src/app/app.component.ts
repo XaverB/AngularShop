@@ -23,15 +23,15 @@ export class AppComponent {
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin();
 
-    
+
     this.oauthService.events.subscribe(event => {
-      if (event instanceof OAuthErrorEvent) {
+      if (event instanceof OAuthErrorEvent)
         console.error(event);
-      } else {
-        console.warn(event);
-      }
+      // } else {
+      //   console.warn(event);
+      // }
     });
-    
+
   }
 
   logout() {

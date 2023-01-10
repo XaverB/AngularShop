@@ -1,4 +1,4 @@
-export interface CreateDiscount {ActionId: number; RuleId: number;}
-export interface Discount {Id: number;discountAction: DiscountAction;  DiscountRule: DiscountRule;}
-export interface DiscountAction {Id: number; Name: string;}
-export interface DiscountRule {Id: number; Name: string;}
+export interface CreateDiscount { ActionId: number; RuleId: number; }
+export class Discount { constructor(public id?: number, public discountAction?: DiscountAction, public discountRule?: DiscountRule) { } }
+export class DiscountAction {constructor(public id: number, public name: string) {}}
+export class DiscountRule { constructor(public id: number, public name: string) {} }

@@ -30,11 +30,6 @@ export class CartOverviewComponent implements OnInit {
       const isLoggedInAndCartIsNotReferenced = this.authenticationService.isLoggedIn() && !cart.customerId;
       const isLoggedInAndCartIsReferenced = this.authenticationService.isLoggedIn() && cart.customerId;
 
-      // reference cart if not yet referenced
-      // if (isLoggedInAndCartIsNotReferenced) {
-      //   this.referenceCart();
-      // } else  if (isLoggedInAndCartIsReferenced)
-      //   // load discount if cart is referenced 
       if(isLoggedInAndCartIsReferenced)
         this.fetchAvailableDiscounts(cart);
     });
@@ -43,11 +38,6 @@ export class CartOverviewComponent implements OnInit {
   private fetchAvailableDiscounts(cart: Cart) {
     this.discountStoreService.getAvailableDiscountsByCartId(cart.id!)
       .subscribe(discounts => this.availableDiscounts = discounts);
-  }
-
-  private referenceCart() {
-    this.cartStoreService.referenceCartWithCustomer(this.cartService.cart.sessionId!, this.cartService.cart.id!)
-      .subscribe(() => this.cartService.newCart());
   }
 
   ngOnInit(): void {
@@ -65,6 +55,11 @@ export class CartOverviewComponent implements OnInit {
   createOrder() {
     if (this.cart.productCarts.length === 0) return;
     this.referenceCartAndCustomer();
+  }
+
+  addDiscountToCart(discount: Discount) {
+    this.discountStoreService.applyDiscounts(this.cart.id!, [discount.id!]);
+
   }
 
   private referenceCartAndCustomer() {

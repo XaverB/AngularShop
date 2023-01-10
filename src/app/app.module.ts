@@ -26,6 +26,9 @@ import { AuthCallbackComponent } from './authcallback/authcallback.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderListItemComponent } from './order-list-item/order-list-item.component';
 import { HttpErrorInterceptor } from './httperror.interceptor';
+import { DiscountListItemComponent } from './discount-list-item/discount-list-item.component';
+import { DiscountListComponent } from './discount-list/discount-list.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { HttpErrorInterceptor } from './httperror.interceptor';
     PaymentComponent,
     AuthCallbackComponent,
     OrderListComponent,
-    OrderListItemComponent
+    OrderListItemComponent,
+    DiscountListItemComponent,
+    DiscountListComponent
   ],
   imports: [
     BrowserModule,

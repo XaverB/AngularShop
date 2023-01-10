@@ -1,0 +1,7 @@
+
+<div class="discount-list list-group">
+    <app-discount-list-item *ngFor="let d of discounts" [discount]="d" (addDiscountEvent)="addDiscountEvent.emit($event)"></app-discount-list-item>
+    <div *ngIf="!discounts || discounts.length === 0">
+        Bitte melden Sie sich an um unsere tollen Rabatte zu benutzen!
+    </div>
+</div>

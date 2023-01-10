@@ -293,7 +293,7 @@ export class CartService {
 
         // Add discounts from session cart
         sessionCart.discounts!.forEach(d => {
-          const existingDiscount = mergedCart.discounts!.find(item => item.Id === d.Id);
+          const existingDiscount = mergedCart.discounts!.find(item => item.id === d.id);
           if (!existingDiscount) {
             mergedCart.discounts!.push(d);
           }
@@ -301,7 +301,7 @@ export class CartService {
 
         // Add discounts from customer cart
         customerCart.discounts!.forEach(d => {
-          const existingDiscount = mergedCart.discounts!.find(item => item.Id === d.Id);
+          const existingDiscount = mergedCart.discounts!.find(item => item.id === d.id);
           if (!existingDiscount) {
             mergedCart.discounts!.push(d);
           }

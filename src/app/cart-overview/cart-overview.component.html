@@ -1,15 +1,26 @@
 <div class="container bg-light container rounded shadow p-lg-5 p-md-3 p-sm-1">
     <h1>Cart</h1>
 
-    <app-cart-overview-list [productCarts]="cart.productCarts" (addProduct)="addProduct($event)"
-        (removeProduct)="removeProduct($event)"></app-cart-overview-list>
+    <div class="cart-product-info-discount-wrapper">
 
-    <div>
-        <strong>Preis: {{ cart.price | number : '.2-2' }}</strong>
-    </div>
-    <div>
-        <Button class="btn btn-success" [disabled]="cart.productCarts.length == 0" (click)="createOrder()">
-            Bestellung kostenpflichtig abschließen
-        </Button>
+        <div class="cart-product-info align-self-stretch flex-grow-1">
+            <h2>Produkte</h2>
+            <app-cart-overview-list [productCarts]="cart.productCarts" (addProduct)="addProduct($event)"
+                (removeProduct)="removeProduct($event)"></app-cart-overview-list>
+
+            <div class="m-2">
+                <strong>Preis: {{ cart.price | number : '.2-2' }}</strong>
+            </div>
+            <div>
+                <Button class="btn btn-success col-12" [disabled]="cart.productCarts.length == 0" (click)="createOrder()">
+                    Bestellung kostenpflichtig abschließen
+                </Button>
+            </div>
+        </div>
+
+        <div class="cart-overview-discount-wrapper m-2">
+            <h2>Verfügbare Rabatte</h2>
+            <app-discount-list [discounts]="availableDiscounts" (addDiscountEvent)="addDiscountToCart($event)"></app-discount-list>
+        </div>
     </div>
 </div>
