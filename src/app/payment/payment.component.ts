@@ -22,11 +22,21 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.cartService.cart;
-    
 
     this.orderService.createOrder(this.cart.id!)
-    .subscribe(res => this.orderId = res);
+      .subscribe(res => {
+        if (isNaN(Number(res))) {
+          console.error(`error while creating order with cartId ${this.cart.id}. Res: ${JSON.stringify(res)}`);
+          return;
+        }
+          
+
+        this.orderService.pay(this.orderId).subscribe(() => {
+          this.orderId = res
+          this.cartService.newCart();
+        })
+      });
   }
 
-  
+
 }

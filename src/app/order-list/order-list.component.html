@@ -1,0 +1,8 @@
+<div class="order-list-wrapper container bg-light container rounded shadow p-lg-5 p-md-3 p-sm-1">
+
+    <h1>Ihre Bestellungen</h1>
+    <div class="order-list-item row mt-3" *ngFor="let order of orders">
+        <app-order-list-item [order]=order ></app-order-list-item>
+    </div>
+
+</div>

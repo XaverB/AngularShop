@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
@@ -7,25 +8,27 @@ import { OAuthService } from 'angular-oauth2-oidc';
 export class AuthenticationService {
 
 
-  constructor(private oauthService: OAuthService) { }
+  constructor(private oauthService: OAuthService, private router: Router) { }
 
-  login(username: string, password: string): boolean {
-    // if (username == 'test' && password == 'test') {
-    //   sessionStorage.setItem('login', 'true');
-    //   return true;
-    // }
-    // return false;
-    this.oauthService.initCodeFlow();
+  login(returnUrl: string): boolean {
+    this.oauthService.initCodeFlow(returnUrl || this.router.url);
     return true;
+  }
+
+  logout() {
+    this.oauthService.logOut()
   }
 
   isLoggedIn() {
     const hasValidAccessToken = this.oauthService.hasValidAccessToken();
     const hasValidIdToken = this.oauthService.hasValidIdToken();
-    return  hasValidAccessToken && hasValidIdToken;
+    return hasValidAccessToken && hasValidIdToken;
   }
 
-  get customerId(): Number {
-    return 1; // TODO
+  get user() { return this.oauthService.getIdentityClaims(); }
+
+  get customerId(): null | number {
+    
+    return this.isLoggedIn() ? 501 : null;
   }
 }

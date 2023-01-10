@@ -22,6 +22,10 @@ import { CartOverviewListItemComponent } from './cart-overview-list-item/cart-ov
 import { LoginComponent } from './login/login.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { PaymentComponent } from './payment/payment.component';
+import { AuthCallbackComponent } from './authcallback/authcallback.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { OrderListItemComponent } from './order-list-item/order-list-item.component';
+import { HttpErrorInterceptor } from './httperror.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { PaymentComponent } from './payment/payment.component';
     CartOverviewListComponent,
     CartOverviewListItemComponent,
     LoginComponent,
-    PaymentComponent
+    PaymentComponent,
+    AuthCallbackComponent,
+    OrderListComponent,
+    OrderListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,12 @@ import { PaymentComponent } from './payment/payment.component';
     provide: HTTP_INTERCEPTORS,
     useClass: AddAppKeyInterceptorInterceptor,
     multi: true,
-  }, EventService],
+  }, EventService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

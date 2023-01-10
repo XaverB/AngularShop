@@ -8,7 +8,7 @@
         <strong>Preis: {{ cart.price | number : '.2-2' }}</strong>
     </div>
     <div>
-        <Button class="btn btn-success" (click)="createOrder()">
+        <Button class="btn btn-success" [disabled]="cart.productCarts.length == 0" (click)="createOrder()">
             Bestellung kostenpflichtig abschließen
         </Button>
     </div>

@@ -11,10 +11,10 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private auth: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
-  
+
   login: any = {
-      username: '',
-      password: ''
+    username: '',
+    password: ''
   };
 
   private returnTo: string = '';
@@ -24,8 +24,10 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
-    if (this.auth.login(this.login.username, this.login.password)) {
-      this.router.navigateByUrl(this.returnTo);
+    if (this.returnTo) localStorage.setItem('returnUrl', this.returnTo);
+    else localStorage.setItem('returnUrl', 'home')
+    if (this.auth.login(this.returnTo)) {
+      this.router.navigate([this.returnTo]);
     } else {
       // TODO error message
     }

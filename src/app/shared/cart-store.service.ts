@@ -16,7 +16,7 @@ export class CartStoreService {
 
   private errorHandler(error: Error | any): Observable<any> {
     console.log(error);
-    return of(error);
+    return of(null);
   }
 
 
@@ -28,9 +28,18 @@ export class CartStoreService {
   getCartBySessionId(sessionId: String): Observable<Cart> {
     return this.http.get<Cart>(`/api/cart/${sessionId}`)
       .pipe(
-        map<any, Cart>(res => res),
+        map(res => Object.assign(new Cart(), res)),
         tap(cart => localStorage.setItem(this.LOCAL_STORAGE_CART, JSON.stringify(cart))),
         catchError(this.errorHandler));
+  }
+
+  getCartByCustomerId(customerId: Number): Observable<Cart> {
+    return this.http.get<Cart>(`/api/cart/customer/${customerId}`)
+    
+    .pipe(
+      map(res => Object.assign(new Cart(), res)),
+      tap(cart => localStorage.setItem(this.LOCAL_STORAGE_CART, JSON.stringify(cart))),
+      catchError(this.errorHandler));
   }
 
   /**
