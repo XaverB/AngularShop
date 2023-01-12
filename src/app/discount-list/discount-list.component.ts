@@ -9,11 +9,17 @@ import { Discount } from '../shared/models/discount';
 export class DiscountListComponent implements OnInit {
 
   @Input() discounts: Discount[] = []
-  @Output() addDiscountEvent = new EventEmitter<Discount>();
+  @Output() addDiscountsEvent = new EventEmitter<number[]>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  invokeApplyDiscounts() {
+    const discountIds = this.discounts.map(d => d.id!);
+
+    this.addDiscountsEvent.emit(discountIds);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { AuthenticationService } from '../shared/authentication.service';
 import { Product } from '../shared/models/product';
 import { ProductStoreService } from '../shared/product-store.service';
 
@@ -17,7 +18,7 @@ export class SearchComponent implements OnInit {
   @Output() filterList = new EventEmitter<Product[]>();
   myKeyup = new EventEmitter<string>();
 
-  constructor(private productStoreService: ProductStoreService) { }
+  constructor(private productStoreService: ProductStoreService, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.myKeyup.pipe(
@@ -27,5 +28,9 @@ export class SearchComponent implements OnInit {
       switchMap(searchTerm => this.productStoreService.search(searchTerm)),
       tap(() => this.isLoading = false)
       ).subscribe(products => this.foundProducts = products);
+  }
+
+  isAdmin(): Boolean {
+    return this.authenticationService.isAdmin();
   }
 }

@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+import { filter, tap } from 'rxjs';
 
 import { AuthenticationService } from '../shared/authentication.service';
 import { CartStoreService } from '../shared/cart-store.service';
@@ -23,26 +26,38 @@ export class CartOverviewComponent implements OnInit {
     private cartStoreService: CartStoreService,
     private authenticationService: AuthenticationService,
     private discountStoreService: DiscountStoreService,
-    protected router: Router) {
-    cartService.cart$.subscribe(cart => {
+    protected router: Router,
+    private toast: NgToastService) {
+
+  }
+
+  ngOnInit(): void {
+    this.cartService.cart$.subscribe(cart => {
       this.cart = cart;
 
-      const isLoggedInAndCartIsNotReferenced = this.authenticationService.isLoggedIn() && !cart.customerId;
       const isLoggedInAndCartIsReferenced = this.authenticationService.isLoggedIn() && cart.customerId;
-
-      if(isLoggedInAndCartIsReferenced)
+      if (isLoggedInAndCartIsReferenced)
         this.fetchAvailableDiscounts(cart);
     });
   }
 
   private fetchAvailableDiscounts(cart: Cart) {
     this.discountStoreService.getAvailableDiscountsByCartId(cart.id!)
-      .subscribe(discounts => this.availableDiscounts = discounts);
+      .subscribe(discounts =>
+        this.availableDiscounts = this.getDiscountsNotInCart(discounts, cart)
+      );
   }
 
-  ngOnInit(): void {
- 
+  private getDiscountsNotInCart(discounts: Discount[], cart: Cart) {
+    return discounts.filter(discount => {
+      for (let i = 0; i < discounts.length; i++) {
+        return cart.discounts.filter(d => d.id == discount.id).length == 0;
+      }
+      return true;
+    });
   }
+
+
 
   addProduct(product: Product) {
     this.cartService.addProduct(product);
@@ -57,9 +72,17 @@ export class CartOverviewComponent implements OnInit {
     this.referenceCartAndCustomer();
   }
 
-  addDiscountToCart(discount: Discount) {
-    this.discountStoreService.applyDiscounts(this.cart.id!, [discount.id!]);
-
+  addDiscountToCart(discountIds: number[]) {
+    this.discountStoreService.applyDiscounts(this.cart.id!, discountIds)
+    .pipe(tap(() => this.cartService.initializeCart()))
+      .subscribe
+      (res => {
+        if (res instanceof HttpErrorResponse) {
+          console.error('schlecht');
+        } else {
+          this.toast.success({ summary: 'Erfolg', detail: 'Rabatte wurden angewendet', duration: 5000 })
+        }
+      });
   }
 
   private referenceCartAndCustomer() {

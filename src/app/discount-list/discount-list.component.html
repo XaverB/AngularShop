@@ -1,6 +1,8 @@
 
 <div class="discount-list list-group">
-    <app-discount-list-item *ngFor="let d of discounts" [discount]="d" (addDiscountEvent)="addDiscountEvent.emit($event)"></app-discount-list-item>
+    <app-discount-list-item *ngFor="let d of discounts" [discount]="d" ></app-discount-list-item>
+    <!-- observers count check so we can use this control for applied and available discounts without an additional flag -->
+    <button class="btn btn-success" *ngIf="discounts.length > 0 && addDiscountsEvent.observers.length > 0" (click)="invokeApplyDiscounts()">Rabatte anwenden</button>
     <div *ngIf="!discounts || discounts.length === 0">
         Bitte melden Sie sich an um unsere tollen Rabatte zu benutzen!
     </div>

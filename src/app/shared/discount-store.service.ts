@@ -24,8 +24,9 @@ export class DiscountStoreService {
   }
 
   applyDiscounts(cartId: number, discountIds: number[]) : Observable<any> {
-    return this.http.put<any[]>(`/api/discount/api/cart/${cartId}/discounts`, { discountIds })
+    return this.http.put<any[]>(`/api/discount/api/cart/${cartId}/discounts`, discountIds )
       .pipe(
+        map<any, any>(res => res),
         catchError(this.errorHandler));
   }
 }

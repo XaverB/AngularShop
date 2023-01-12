@@ -33,4 +33,21 @@ export class ProductStoreService {
     return this.http.get<Product>(`/api/product/${id}`)
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
   }
+
+  postProduct(product: Product): Observable<any> {
+    const {id, ...createProduct } = product;
+
+    return this.http.post<Product>(`/api/product`, createProduct)
+      .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
+  }
+
+  putProduct(product: Product): Observable<any> {
+    return this.http.put<Product>(`/api/product`, product)
+      .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
+  }
+
+  delete(id: number): Observable<Product> {
+    return this.http.delete<Product>(`/api/product/${id}`)
+      .pipe(map(res => res), catchError(this.errorHandler));
+  }
 }

@@ -140,7 +140,7 @@ export class CartService {
   }
 
 
-  private initializeCart() {
+  public initializeCart() {
     const customerId = this.authenticationService.customerId;
 
     // logged in
@@ -168,7 +168,7 @@ export class CartService {
     }
   }
 
-  initializeCartNotLoggedIn() {
+  private initializeCartNotLoggedIn() {
     const cartFromSession = Cart.createFromLocalStorage();
     const cartFromSessionAvailable = cartFromSession.sessionId;
 

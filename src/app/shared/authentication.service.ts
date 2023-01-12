@@ -25,10 +25,24 @@ export class AuthenticationService {
     return hasValidAccessToken && hasValidIdToken;
   }
 
+  isAdmin(): Boolean {
+
+    if (!this.isLoggedIn()) return false;
+    const claims: any = this.oauthService.getIdentityClaims();
+    if (!claims.hasOwnProperty('groups')) return false;
+    const groups: string[] = claims.groups;
+    const isAdmin = groups.includes('admin');
+
+    return isAdmin;
+  }
+
   get user() { return this.oauthService.getIdentityClaims(); }
 
   get customerId(): null | number {
-    
-    return this.isLoggedIn() ? 501 : null;
+    if (!this.isLoggedIn()) return null;
+
+    const claims: any = this.oauthService.getIdentityClaims();
+    if (!claims.hasOwnProperty('customerid')) return null;
+    return Number(claims.customerid);
   }
 }

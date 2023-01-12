@@ -6,6 +6,9 @@
         <span class="spinner-border spinner-border-sm text-light" [ngClass]="{ 'd-none' : !isLoading}" role="status" aria-hidden="true"></span>
         <span class="visually-hidden" [ngClass]="{ 'd-none' : !isLoading}">Loading...</span>
     </button>
+    <a class="btn btn-primary border-start-0 border rounded-pill ms-n3" routerLink="/products/0/edit" *ngIf="isAdmin()">
+        <i class="bi bi-plus-lg"></i>
+    </a>
 
     <datalist id="datalistOptions">
         <option *ngFor="let product of foundProducts" (click)="productSelected.emit(product)" [value]=product.label>{{ product.label }}</option>

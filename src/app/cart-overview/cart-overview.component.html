@@ -9,18 +9,33 @@
                 (removeProduct)="removeProduct($event)"></app-cart-overview-list>
 
             <div class="m-2">
-                <strong>Preis: {{ cart.price | number : '.2-2' }}</strong>
+                Preis:
+                <strong [ngClass]="{'text-decoration-line-through': cart.discounts.length > 0 || cart.coupon}">
+                    {{ cart.price | currency }}
+                </strong>
+                <strong class="ms-2" *ngIf="cart.discounts.length > 0 || cart.coupon">{{ cart.discountedPrice | currency }}</strong>
             </div>
             <div>
-                <Button class="btn btn-success col-12" [disabled]="cart.productCarts.length == 0" (click)="createOrder()">
+                <app-apply-coupon *ngIf="!cart.coupon && cart.productCarts.length > 0"></app-apply-coupon>
+            </div>
+            <div>
+                <Button class="btn btn-primary col-12" [disabled]="cart.productCarts.length == 0"
+                    (click)="createOrder()">
                     Bestellung kostenpflichtig abschließen
                 </Button>
             </div>
         </div>
 
         <div class="cart-overview-discount-wrapper m-2">
-            <h2>Verfügbare Rabatte</h2>
-            <app-discount-list [discounts]="availableDiscounts" (addDiscountEvent)="addDiscountToCart($event)"></app-discount-list>
+            <div *ngIf="availableDiscounts.length > 0">
+                <h2>Verfügbare Rabatte</h2>
+                <app-discount-list [discounts]="availableDiscounts"
+                    (addDiscountsEvent)="addDiscountToCart($event)"></app-discount-list>
+            </div>
+            <div *ngIf="cart.discounts.length > 0">
+                <h2>Angewandte Rabatte</h2>
+                <app-discount-list [discounts]="cart.discounts"></app-discount-list>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,14 @@
+<div class="apply-coupon-wrapper">
+    <form (submit)="onSubmit()" [formGroup]="couponForm!">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon Code"
+                aria-describedby="button-addon2" uuid formControlName="couponKey">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"
+                [disabled]="couponForm?.invalid">Anwenden</button>
+        </div>
+        <div *ngIf="couponForm!.get('couponKey')!.hasError('uuid') && couponForm!.get('couponKey')!.touched"
+            class="text-danger">
+            Bitte geben Sie einen gültigen Coupon ein
+        </div>
+    </form>
+</div>

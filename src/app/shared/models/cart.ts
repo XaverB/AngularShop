@@ -1,3 +1,4 @@
+import { Coupon } from "./coupon";
 import { Discount } from "./discount";
 import { Product } from "./product";
 import { ProductCart } from "./productcart";
@@ -8,8 +9,10 @@ export class Cart {
         public customerId?: number | null,
         public sessionId?: string,
         public price: number = 0,
+        public discountedPrice: number = 0,
         public productCarts: ProductCart[] = [],
-        public discounts: Discount[] = []) { };
+        public discounts: Discount[] = [],
+        public coupon?: Coupon) { };
 
     public getProductCount(): number {
         return this.productCarts

@@ -31,7 +31,6 @@ export class AppComponent {
       //   console.warn(event);
       // }
     });
-
   }
 
   logout() {

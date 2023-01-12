@@ -26,6 +26,12 @@
             <button class="btn btn-primary" (click)="addToShoppingCart()">
                 <i class="bi bi-bag-plus"></i>
             </button>
+            <a class="btn btn-warning m-1" routerLink="./edit"  *ngIf="isAdmin()">
+                <i class="bi bi-pencil-fill"></i>
+            </a>
+            <button class="btn btn-danger" *ngIf="isAdmin()" (click)="deleteProduct()">
+                <i class="bi bi-trash3-fill"></i>
+            </button>
         </div>
     </div>
 

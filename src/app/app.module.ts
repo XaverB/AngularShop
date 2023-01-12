@@ -28,6 +28,10 @@ import { OrderListItemComponent } from './order-list-item/order-list-item.compon
 import { HttpErrorInterceptor } from './httperror.interceptor';
 import { DiscountListItemComponent } from './discount-list-item/discount-list-item.component';
 import { DiscountListComponent } from './discount-list/discount-list.component';
+import { ProductDetailEditComponent } from './product-detail-edit/product-detail-edit.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { ApplyCouponComponent } from './apply-coupon/apply-coupon.component';
+import { UuidValidatorDirective } from './shared/uuid-validator.directive';
 
 
 @NgModule({
@@ -48,9 +52,13 @@ import { DiscountListComponent } from './discount-list/discount-list.component';
     OrderListComponent,
     OrderListItemComponent,
     DiscountListItemComponent,
-    DiscountListComponent
+    DiscountListComponent,
+    ProductDetailEditComponent,
+    ApplyCouponComponent,
+    UuidValidatorDirective
   ],
   imports: [
+    NgToastModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

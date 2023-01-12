@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthCallbackComponent } from './authcallback/authcallback.component';
 import { CanNavigateToUserGuard } from './CanNavigateToUserGuard';
 import { CartOverviewComponent } from './cart-overview/cart-overview.component';
+import { ProductDetailEditComponent } from './product-detail-edit/product-detail-edit.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'products/:id',
     component: ProductDetailComponent
+  },
+  {
+    path: 'products/:id/edit',
+    component: ProductDetailEditComponent
   },
   {
     path: 'orders',
