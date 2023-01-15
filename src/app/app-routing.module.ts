@@ -12,6 +12,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductListComponent } from './product-list/product-list.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AdminDiscountOverviewComponent } from './admin-discount-overview/admin-discount-overview.component';
+import { AdminDiscountFormComponent } from './admin-discount-form/admin-discount-form.component';
+import { DiscountActionFormComponent } from './discount-action-form/discount-action-form.component';
+import { DiscountRuleFormComponent } from './discount-rule-form/discount-rule-form.component';
 
 const routes: Routes = [
   {
@@ -56,6 +59,21 @@ const routes: Routes = [
   {
     path: 'discounts',
     component: AdminDiscountOverviewComponent,
+    canActivate: [CanNavigateToUserGuard]
+  },
+  {
+    path: 'discount',
+    component: AdminDiscountFormComponent,
+    canActivate: [CanNavigateToUserGuard]
+  },
+  {
+    path: 'action',
+    component: DiscountActionFormComponent,
+    canActivate: [CanNavigateToUserGuard]
+  },
+  {
+    path: 'rule',
+    component: DiscountRuleFormComponent,
     canActivate: [CanNavigateToUserGuard]
   },
   {

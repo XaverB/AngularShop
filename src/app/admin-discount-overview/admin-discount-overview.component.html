@@ -4,9 +4,9 @@
     <div class="m-2">
         <div class="d-flex mb-2">
             <h2 class="flex-grow-1">Rabatte</h2>
-            <button class="btn btn-primary me-2">
+            <a class="btn btn-primary me-2" routerLink="/discount">
                 <i class="bi bi-plus-lg"></i>
-            </button>
+            </a>
         </div>
         <app-admin-discount-list [discounts]=discounts
             (deleteDiscountEvent)="deleteDiscount($event)"></app-admin-discount-list>
@@ -15,9 +15,9 @@
     <div class="m-2">
         <div class="d-flex mb-2">
             <h2 class="flex-grow-1">Rabattregeln</h2>
-            <button class="btn btn-primary me-2">
+            <a class="btn btn-primary me-2" routerLink="/rule">
                 <i class="bi bi-plus-lg"></i>
-            </button>
+            </a>
         </div>
         <app-admin-discount-rule-list [rules]=rules (deleteDiscountRuleEvent)="deleteRule($event)"
             [inUseRules]="inUseRules"></app-admin-discount-rule-list>
@@ -26,9 +26,9 @@
     <div class="m-2">
         <div class="d-flex mb-2">
             <h2 class="flex-grow-1">Rabattaktionen</h2>
-            <button class="btn btn-primary me-2">
+            <a class="btn btn-primary me-2" routerLink="/action">
                 <i class="bi bi-plus-lg"></i>
-            </button>
+            </a>
         </div>
         <app-admin-discount-action-list [actions]=actions (deleteDiscountActionEvent)="deleteAction($event)"
             [inUseActions]="inUseActions"></app-admin-discount-action-list>

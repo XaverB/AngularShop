@@ -30,10 +30,7 @@ export class DiscountRuleStoreService {
         catchError(this.errorHandler));
   }
 
-  create(rule: DiscountRule, ruleSet: any) {
-    const payload: any = Object.assign({}, rule);
-    payload.ruleSet = ruleSet
-
+  create(payload: any) {
     return this.http.post<any>(`/api/discount/rule`, payload)
       .pipe(
         map<any, any>(res => res),

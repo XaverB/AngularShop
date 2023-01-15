@@ -42,6 +42,8 @@ import { AdminDiscountRuleListComponent } from './admin-discount-rule-list/admin
 import { AdminDiscountRuleListItemComponent } from './admin-discount-rule-list-item/admin-discount-rule-list-item.component';
 import { AdminDiscountActionListComponent } from './admin-discount-action-list/admin-discount-action-list.component';
 import { AdminDiscountActionListItemComponent } from './admin-discount-action-list-item/admin-discount-action-list-item.component';
+import { DiscountActionFormComponent } from './discount-action-form/discount-action-form.component';
+import { DiscountRuleFormComponent } from './discount-rule-form/discount-rule-form.component';
 
 
 @NgModule({
@@ -74,7 +76,9 @@ import { AdminDiscountActionListItemComponent } from './admin-discount-action-li
     AdminDiscountRuleListComponent,
     AdminDiscountRuleListItemComponent,
     AdminDiscountActionListComponent,
-    AdminDiscountActionListItemComponent
+    AdminDiscountActionListItemComponent,
+    DiscountActionFormComponent,
+    DiscountRuleFormComponent
   ],
   imports: [
     NgToastModule,
