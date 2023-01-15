@@ -16,9 +16,7 @@ export class OrderListItemComponent implements OnInit {
   }
 
   getDiscount(): number {
-    const discountPercentage = Number(this.order.discount);
-    const price = Number(this.order.cart?.price);
-    return price * discountPercentage;
+    return this.order.cart?.discountedPrice ?? 0;
   }
 
 }

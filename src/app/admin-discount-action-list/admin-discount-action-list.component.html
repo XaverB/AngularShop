@@ -1,0 +1,5 @@
+
+<div class="admin-discount-action-list list-group">
+    <app-admin-discount-action-list-item *ngFor="let d of actions" [action]="d" (deleteDiscountActionEvent)="deleteDiscountActionEvent.emit($event)"
+    [isInUse]="isInUse(d)"></app-admin-discount-action-list-item>
+</div>

@@ -1,17 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Xaver's Shop</a>
-    <a class="navbar-brand" routerLink="/orders" *ngIf="isLoggedIn()">Bestellungen</a>
-    <a class="navbar-brand" href="login" *ngIf="!isLoggedIn()">Login</a>
-    <a class="navbar-brand" href="#" *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
+  <a class="navbar-brand ms-5" href="#">Xaver's Shop</a>
 
-    <div class="cart-widget-wrapper">
-      <app-cart-widget></app-cart-widget>
-    </div>
-    
-  </nav>
-  
-  <div class="content-wrapper bg-body">
-    <router-outlet></router-outlet>
+  <div class="cart-widget-wrapper me-3">
+    <app-cart-widget></app-cart-widget>
   </div>
 
-<lib-ng-toast></lib-ng-toast>>
+
+  <a class="navbar-brand" routerLink="/orders" *ngIf="isLoggedIn()">Bestellungen</a>
+  <a class="navbar-brand" routerLink="/statistics" *ngIf="isAdmin()">Statistiken</a>
+  <a class="navbar-brand" routerLink="/discounts" *ngIf="isAdmin()">Rabatte</a>
+  <a class="navbar-brand" href="login" *ngIf="!isLoggedIn()">Login</a>
+  <a class="navbar-brand" href="#" *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
+</nav>
+
+<div class="content-wrapper bg-body">
+  <router-outlet></router-outlet>
+</div>
+
+<lib-ng-toast></lib-ng-toast>

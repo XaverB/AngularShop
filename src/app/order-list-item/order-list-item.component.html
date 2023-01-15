@@ -5,22 +5,11 @@
         </div>
 
         <div>
-            Preis: {{ order.cart?.price | currency }}
+            Preis: {{ order.cart?.price| currency }}
         </div>
 
         <div>
-            Rabatt: {{ getDiscount() | currency}} ({{ order.discount?.toString() |  percent }})
+            Rabatt: {{ getDiscount() | currency }}
         </div>
     </div>
-
-    <!-- <div class="cart-overview-list-item-actions-wrapper d-flex align-items-end">
-        <div class="cart-overview-list-item-actions-wrapper-item btn-group-vertical">
-            <button class="btn btn-success">
-                <i class="bi bi-plus-lg"></i>
-            </button>
-            <button class="btn btn-danger">
-                <i class="bi bi-dash-lg"></i>
-            </button>
-        </div>
-    </div> -->
 </div>

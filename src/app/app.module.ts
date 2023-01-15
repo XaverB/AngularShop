@@ -32,6 +32,16 @@ import { ProductDetailEditComponent } from './product-detail-edit/product-detail
 import { NgToastModule } from 'ng-angular-popup';
 import { ApplyCouponComponent } from './apply-coupon/apply-coupon.component';
 import { UuidValidatorDirective } from './shared/uuid-validator.directive';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { AdminDiscountOverviewComponent } from './admin-discount-overview/admin-discount-overview.component';
+import { AdminDiscountFormComponent } from './admin-discount-form/admin-discount-form.component';
+import { AdminDiscountListComponent } from './admin-discount-list/admin-discount-list.component';
+import { AdminDiscountListItemComponent } from './admin-discount-list-item/admin-discount-list-item.component';
+import { AdminDiscountRuleListComponent } from './admin-discount-rule-list/admin-discount-rule-list.component';
+import { AdminDiscountRuleListItemComponent } from './admin-discount-rule-list-item/admin-discount-rule-list-item.component';
+import { AdminDiscountActionListComponent } from './admin-discount-action-list/admin-discount-action-list.component';
+import { AdminDiscountActionListItemComponent } from './admin-discount-action-list-item/admin-discount-action-list-item.component';
 
 
 @NgModule({
@@ -55,7 +65,16 @@ import { UuidValidatorDirective } from './shared/uuid-validator.directive';
     DiscountListComponent,
     ProductDetailEditComponent,
     ApplyCouponComponent,
-    UuidValidatorDirective
+    UuidValidatorDirective,
+    StatisticsComponent,
+    AdminDiscountOverviewComponent,
+    AdminDiscountFormComponent,
+    AdminDiscountListComponent,
+    AdminDiscountListItemComponent,
+    AdminDiscountRuleListComponent,
+    AdminDiscountRuleListItemComponent,
+    AdminDiscountActionListComponent,
+    AdminDiscountActionListItemComponent
   ],
   imports: [
     NgToastModule,
@@ -64,6 +83,12 @@ import { UuidValidatorDirective } from './shared/uuid-validator.directive';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxEchartsModule.forRoot({
+      /**
+       * https://github.com/xieziyu/ngx-echarts
+       */
+      echarts: () => import('echarts'), 
+    }),
     OAuthModule.forRoot()
   ],
   providers: [{

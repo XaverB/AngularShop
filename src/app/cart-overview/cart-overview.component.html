@@ -1,4 +1,4 @@
-<div class="container bg-light container rounded shadow p-lg-5 p-md-3 p-sm-1">
+<div class="container bg-light container rounded shadow p-lg-5 p-md-3 p-sm-1"><
     <h1>Cart</h1>
 
     <div class="cart-product-info-discount-wrapper">
@@ -13,7 +13,7 @@
                 <strong [ngClass]="{'text-decoration-line-through': cart.discounts.length > 0 || cart.coupon}">
                     {{ cart.price | currency }}
                 </strong>
-                <strong class="ms-2" *ngIf="cart.discounts.length > 0 || cart.coupon">{{ cart.discountedPrice | currency }}</strong>
+                <strong class="ms-2" *ngIf="cart.discounts.length > 0 || cart.coupon">{{ cart.price - cart.discountedPrice | currency }}</strong>
             </div>
             <div>
                 <app-apply-coupon *ngIf="!cart.coupon && cart.productCarts.length > 0"></app-apply-coupon>
@@ -24,7 +24,7 @@
                     Bestellung kostenpflichtig abschließen
                 </Button>
             </div>
-        </div>
+        </div> 
 
         <div class="cart-overview-discount-wrapper m-2">
             <div *ngIf="availableDiscounts.length > 0">

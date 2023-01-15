@@ -1,0 +1,5 @@
+
+<div class="admin-discount-rule-list list-group">
+    <app-admin-discount-rule-list-item *ngFor="let d of rules" [rule]="d" (deleteDiscountRuleEvent)="deleteDiscountRuleEvent.emit($event)"
+    [isInUse]="isInUse(d)"></app-admin-discount-rule-list-item>
+</div>

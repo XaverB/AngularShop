@@ -1,0 +1,4 @@
+
+<div class="admin-discount-list list-group">
+    <app-admin-discount-list-item *ngFor="let d of discounts" [discount]="d" (deleteDiscountEvent)="deleteDiscountEvent.emit($event)"></app-admin-discount-list-item>
+</div>

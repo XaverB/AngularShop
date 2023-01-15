@@ -23,10 +23,24 @@ export class DiscountStoreService {
         catchError(this.errorHandler));
   }
 
+  getDiscountsByShopId(shopId: Number): Observable<Discount[]> {
+    return this.http.get<Discount[]>(`/api/discount/api/shop/${shopId}/discounts`)
+      .pipe(
+        map<any, Discount[]>(res => res),
+        catchError(this.errorHandler));
+  }
+
   applyDiscounts(cartId: number, discountIds: number[]) : Observable<any> {
     return this.http.put<any[]>(`/api/discount/api/cart/${cartId}/discounts`, discountIds )
       .pipe(
         map<any, any>(res => res),
         catchError(this.errorHandler));
+  }
+
+  deleteDiscount(discountId: number): Observable<any> {
+    return this.http.delete<any[]>(`/api/discount/api/discount/${discountId}`)
+    .pipe(
+      map<any, any>(res => res),
+      catchError(this.errorHandler));
   }
 }

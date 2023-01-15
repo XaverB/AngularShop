@@ -1,0 +1,13 @@
+<div class="admin-discount-action-list-item-wrappers p-2 list-group-item d-flex">
+    <div class="flex-grow-1">
+        Name: {{ action?.name }}<br />
+        <div *ngIf="isInUse" class="text-warning">
+            <i class="bi bi-exclamation-triangle-fill"> Mit einem Rabatt verknüpft</i>
+        </div>
+    </div>
+    <div class="align-self-center">
+        <button type="button" class="btn btn-danger" (click)="deleteDiscountActionEvent.emit(action)" [disabled]=isInUse>
+            <i class="bi bi-trash3-fill"></i>
+        </button>
+    </div>
+</div>

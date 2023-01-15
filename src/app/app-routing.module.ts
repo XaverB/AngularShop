@@ -10,6 +10,8 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { AdminDiscountOverviewComponent } from './admin-discount-overview/admin-discount-overview.component';
 
 const routes: Routes = [
   {
@@ -49,6 +51,16 @@ const routes: Routes = [
   {
     path: 'payment',
     component: PaymentComponent,
+    canActivate: [CanNavigateToUserGuard]
+  },
+  {
+    path: 'discounts',
+    component: AdminDiscountOverviewComponent,
+    canActivate: [CanNavigateToUserGuard]
+  },
+  {
+    path: 'statistics',
+    component: StatisticsComponent,
     canActivate: [CanNavigateToUserGuard]
   },
   {
