@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
 import { DiscountRuleStoreService } from '../shared/discount-rule-store.service';
@@ -28,23 +28,29 @@ export class DiscountRuleFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      startDate: ['', [Validators.required]],
+      totalCartAmount: ['', [Validators.required, Validators.min(1)]],
+      startDate: ['', [Validators.required, this.validateDates]],
       endDate: ['', [Validators.required, this.validateDates]],
-      totalCartAmount: ['', [Validators.required, Validators.min(1)]]
     });
 
-    // set validators for date time
+
     this.onSelectChange(totalAmountType);
   }
 
-  validateDates(control: FormControl) {
-    const startDate = control?.get('startDate')?.value;
-    const endDate = control?.get('endDate')?.value;
-    if (startDate > endDate) {
-      return { invalidDates: true };
+  validateDates(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const endDate = this.form && this.form.get("endDate")!.value;
+      const startDate = this.form && this.form.get("startDate")!.value
+      let invalid = false;
+      if (startDate && endDate) {
+        invalid = new Date(startDate).valueOf() > new Date(endDate).valueOf();
+      }
+
+      return invalid ? { invalidRange: { startDate, endDate } } : null;
     }
-    return null;
   }
+
+
 
   onTotalCartAmountChanged(event: any) {
     const inputValue = event.target.value;
@@ -61,9 +67,9 @@ export class DiscountRuleFormComponent implements OnInit {
       shopId: environment.shopId,
       name: value.name,
       ruleSet: {
-        minimumTotalAmount: value.totalAmount,
         /** bad for security */
-        $discriminator: "TotalAmountDiscountRuleset"
+        $discriminator: "TotalAmountDiscountRuleset",
+        minimumTotalAmount: value.totalAmount
       }
     }
       :
@@ -71,11 +77,11 @@ export class DiscountRuleFormComponent implements OnInit {
         shopId: environment.shopId,
         name: value.name,
         ruleSet: {
+          /** bad for security */
+          $discriminator: "DateDiscountRuleset",
           startDate: new Date(Date.parse(value.startDate)),
           endDate: new Date(Date.parse(value.endDate)),
-          orderDate: new Date(),
-          /** bad for security */
-          $discriminator: "DateDiscountRuleset"
+          orderDate: new Date()
         }
       };
 
@@ -89,8 +95,8 @@ export class DiscountRuleFormComponent implements OnInit {
         }
       }
       )
-
   }
+
   // change validators regarding the selected rule type
   onSelectChange(value: any) {
     console.log(JSON.stringify(value));
@@ -108,7 +114,7 @@ export class DiscountRuleFormComponent implements OnInit {
       this.form?.get('startDate')!.clearValidators();
       this.form?.get('endDate')!.clearValidators();
     } else {
-      this.form?.get('startDate')!.setValidators([Validators.required]);
+      this.form?.get('startDate')!.setValidators([Validators.required, this.validateDates]);
       this.form?.get('endDate')!.setValidators([Validators.required, this.validateDates]);
     }
     this.form?.get('startDate')!.updateValueAndValidity();
@@ -118,3 +124,4 @@ export class DiscountRuleFormComponent implements OnInit {
 
 const totalAmountType = "1";
 const dateType = "2";
+

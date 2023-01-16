@@ -1,1 +1,25 @@
-<p>admin-discount-form works!</p>
+<div class="container bg-light container rounded shadow p-lg-5 p-md-3 p-sm-1">
+    <h1>Rabatt erstellen</h1>
+
+    <form class="mx-auto" [formGroup]="form!" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Regel</label>
+            <select class="form-select" id="rule" formControlName="rule">
+                <option selected disabled hidden>Bitte wählen</option>
+                <option *ngFor="let rule of rules">{{ rule.name }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Aktion</label>
+            <select class="form-select" id="action" formControlName="action">
+                <option selected disabled hidden>Bitte wählen</option>
+                <option *ngFor="let action of actions">{{ action.name }}</option>
+            </select>
+        </div>
+
+        <div class="d-grid mt-2">
+            <button class="btn btn-primary" type="submit" (disbaled)="form?.invalid">Speichern</button>
+        </div>
+    </form>
+</div>

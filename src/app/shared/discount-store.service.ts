@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Discount } from './models/discount';
@@ -39,6 +39,14 @@ export class DiscountStoreService {
 
   deleteDiscount(discountId: number): Observable<any> {
     return this.http.delete<any[]>(`/api/discount/api/discount/${discountId}`)
+    .pipe(
+      map<any, any>(res => res),
+      catchError(this.errorHandler));
+  }
+
+  create(actionId: number, ruleId: number) {
+    const payload = { actionId: actionId, ruleId: ruleId}
+    return this.http.post<any[]>(`/api/discount/api/discount`, payload, {headers: new HttpHeaders().set('Content-Type', 'application/json' ) })
     .pipe(
       map<any, any>(res => res),
       catchError(this.errorHandler));

@@ -59,6 +59,8 @@ export class AdminDiscountOverviewComponent implements OnInit {
 
         this.toastService.success({ summary: "Erfolg", detail: "Rabatt wurde gelöscht.", duration: 5000 });
         this.discounts = this.discounts.filter(item => item.id !== discount.id);
+        this.inUseActions = this.discounts.map(d => d.discountAction!);
+        this.inUseRules = this.discounts.map(d => d.discountRule!);
       }))
       .subscribe();
   }
@@ -84,7 +86,7 @@ export class AdminDiscountOverviewComponent implements OnInit {
     if (!confirm(`Wollen Sie den Rabatt ${action?.name} wirklich löschen?`)) return;
 
     if (!action.id) return;
-    this.discountRuleStoreService.delete(action.id)
+    this.discountActionStoreService.delete(action.id)
       .pipe(tap(res => {
         if (res instanceof HttpErrorResponse) {
           this.toastService.error({ summary: "Fehler", detail: "Rabattaktion wurde nicht gelöscht. Bitte versuchen Sie es später erneut", duration: 5000 });

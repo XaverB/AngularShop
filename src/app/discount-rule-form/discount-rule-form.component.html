@@ -22,7 +22,7 @@
         <!-- 1 == BetweenDate rule-->
         <div class="form-group" *ngIf="selectedRule == 1">
             <label for="startDate">Startdatum</label>
-            <input type="date" class="form-control" id="startDate" formControlName="startDate">
+            <input type="date" class="form-control" id="startDate" formControlName="startDate" useValueAsDate>
             <div *ngIf="form?.get('startDate')?.invalid && (form?.get('startDate')?.dirty || form?.get('startDate')?.touched)"
                 class="alert alert-danger">
                 <div *ngIf="form?.get('startDate')?.errors!['required']">
@@ -33,7 +33,7 @@
 
         <div class="form-group" *ngIf="selectedRule == 1">
             <label for="endDate">Enddatum</label>
-            <input type="date" class="form-control" id="endDate" formControlName="endDate">
+            <input type="date" class="form-control" id="endDate" formControlName="endDate" useValueAsDate>
             <div *ngIf="form?.get('endDate')?.invalid && (form?.get('endDate')?.dirty || form?.get('endDate')?.touched)"
                 class="alert alert-danger">
                 <div *ngIf="form?.get('endDate')?.errors!['required']">

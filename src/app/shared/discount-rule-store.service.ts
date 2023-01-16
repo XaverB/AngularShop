@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { DiscountAction, DiscountRule } from './models/discount';
@@ -31,7 +31,7 @@ export class DiscountRuleStoreService {
   }
 
   create(payload: any) {
-    return this.http.post<any>(`/api/discount/rule`, payload)
+    return this.http.post<any>(`/api/discount/rule`, JSON.stringify(payload), {headers: new HttpHeaders().set('Content-Type', 'application/json' ) })
       .pipe(
         map<any, any>(res => res),
         catchError(this.errorHandler));

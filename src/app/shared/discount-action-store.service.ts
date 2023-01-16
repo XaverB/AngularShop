@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, map, catchError } from 'rxjs';
 import { DiscountAction } from './models/discount';
@@ -30,11 +30,8 @@ export class DiscountActionStoreService {
         catchError(this.errorHandler));
   }
 
-  create(action: DiscountAction, actionObject: any) {
-    const payload: any = Object.assign({}, action);
-    payload.actionObject = actionObject
-
-    return this.http.post<any>(`/api/discount/action`, payload)
+  create(payload: any) {
+    return this.http.post<any>(`/api/discount/action`, JSON.stringify(payload), {headers: new HttpHeaders().set('Content-Type', 'application/json' ) })
       .pipe(
         map<any, any>(res => res),
         catchError(this.errorHandler));
