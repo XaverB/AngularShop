@@ -28,10 +28,15 @@ export class DiscountActionFormComponent implements OnInit {
       fixedValue: ['', [Validators.required, Validators.min(1)]],
       percentValue: ['', [Validators.required, Validators.min(0.01)]]
     });
+    this.updateValidators(percentType);
   }
 
   // change validators regarding the selected rule type
   onSelectChange(value: any) {
+    this.updateValidators(value);
+  }
+  
+  updateValidators(value: any) {
     console.log(JSON.stringify(value));
     const isFixedValue = value === fixedValueType;
 
@@ -46,7 +51,6 @@ export class DiscountActionFormComponent implements OnInit {
     }
     this.form?.get('percentValue')!.updateValueAndValidity();
     this.form?.get('fixedValue')!.updateValueAndValidity();
-
   }
 
   onSubmit() {

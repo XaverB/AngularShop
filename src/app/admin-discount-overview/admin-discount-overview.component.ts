@@ -30,20 +30,28 @@ export class AdminDiscountOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.discountStoreService.getDiscountsByShopId(environment.shopId)
-      .subscribe(discounts => this.discounts = discounts);
+      .subscribe(discounts => {
+        this.discounts = discounts;
+        this.updateInUseData();      
+      });
 
     this.discountRuleStoreService.getAll(environment.shopId)
       .subscribe(rules => {
         this.rules = rules;
-        this.inUseRules = this.discounts.map(d => d.discountRule!);
+        this.updateInUseData();      
       });
 
     this.discountActionStoreService.getAll(environment.shopId)
       .subscribe(actions => {
         this.actions = actions
-        this.inUseActions = this.discounts.map(d => d.discountAction!);
+        this.updateInUseData();      
       }
       );
+  }
+
+  updateInUseData() {
+    this.inUseActions = this.discounts.map(d => d.discountAction!);
+    this.inUseRules = this.discounts.map(d => d.discountRule!);
   }
 
   deleteDiscount(discount: Discount): void {
