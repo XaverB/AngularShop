@@ -1,11 +1,13 @@
 <div class="search">
-    <input class="form-control me-2 border-end-0 border rounded-pill" type="search" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." #searchTerm (keyup)="myKeyup.emit(searchTerm.value)" 
-        (keyup.enter)="filterList.emit(foundProducts)" />
-    <button class="btn btn-info border-start-0 border rounded-pill ms-n3" id="btnFilterList" type="submit" (click)="filterList.emit(foundProducts)">
+    <input class="form-control me-2 border-end-0 border rounded-pill" type="search" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." 
+    #searchTerm (keyup)="myKeyup.emit(searchTerm.value)" />
+    <a class="btn btn-info border-start-0 border rounded-pill ms-n3" id="btnFilterList"
+        routerLink="/products" [queryParams]='{ filter: searchTerm.value, offset: 0}'
+    (click)="filterList.emit(foundProducts)">
         <i class="bi bi-search text-light" [ngClass]="{ 'd-none': isLoading}"></i>
         <span class="spinner-border spinner-border-sm text-light" [ngClass]="{ 'd-none' : !isLoading}" role="status" aria-hidden="true"></span>
         <span class="visually-hidden" [ngClass]="{ 'd-none' : !isLoading}">Loading...</span>
-    </button>
+    </a>
     <a class="btn btn-primary border-start-0 border rounded-pill ms-n3" routerLink="/products/0/edit" *ngIf="isAdmin()">
         <i class="bi bi-plus-lg"></i>
     </a>

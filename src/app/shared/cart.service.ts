@@ -44,22 +44,6 @@ export class CartService {
     });
   }
 
-  // set cart(newCart: Cart) {
-  //   if(!newCart) return;
-
-  //   // check if we ddos the service with this in bad cases
-  //   if (!newCart.customerId && this.authenticationService.isLoggedIn()) {
-  //     this.cartStoreService.referenceCartWithCustomer(newCart.sessionId!, this.authenticationService.customerId!)
-  //       .subscribe(() => this.cartStoreService.getCartByCustomerId(this.authenticationService.customerId!).subscribe
-  //         (cart => {
-  //           if (cart && cart.customerId)
-  //             this.cart = cart;
-  //         }));
-  //   } else {
-  //     this._Cart = newCart;
-  //     this.cartSubject.next(newCart);
-  //   }
-  // }
 
   set cart(newCart: Cart) {
     if (!newCart) return;

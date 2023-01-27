@@ -1,0 +1,1982 @@
+<svg version="1.1" baseProfile="full" width="22405.5" height="717.0" viewbox="0 0 22405.5 717" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<desc >#.interface: fill=lightblue
+#.enumeration: fill=lightgreen
+#.type: fill=lightgray
+[AddAppKeyInterceptorInterceptor||+intercept(): Observable&lt;HttpEvent&lt;unknown&gt;&gt;]
+[HttpInterceptor]&lt;:--[AddAppKeyInterceptorInterceptor]
+[AppRoutingModule||]
+[AppComponent|+shopName: string;+title: string;-authService: AuthenticationService;-oauthService: OAuthService;-router: Router;-shopStoreService: ShopStoreService|+ngOnInit(): void;+isLoggedIn(): boolean;+isAdmin(): Boolean;-configureWithNewConfigApi(): void;+logout(): void]
+[OnInit]&lt;:--[AppComponent]
+[AppModule||]
+[CanNavigateToUserGuard|#router: Router;#auth: AuthenticationService|+canActivate(): boolean \| UrlTree \| Observable&lt;boolean \| UrlTree&gt; \| Promise&lt;boolean \| UrlTree&gt;]
+[CanActivate]&lt;:--[CanNavigateToUserGuard]
+[HttpErrorInterceptor||+intercept(): Observable&lt;HttpEvent&lt;any&gt;&gt;]
+[HttpInterceptor]&lt;:--[HttpErrorInterceptor]
+[ApplyCouponComponent|+couponForm: FormGroup&lt;any&gt; \| undefined;+couponKey: string \| undefined;-couponStoreService: CouponService;-cartService: CartService;-formBuilder: FormBuilder;-toast: NgToastService|+ngOnInit(): void;+onSubmit(): void]
+[OnInit]&lt;:--[ApplyCouponComponent]
+[AuthCallbackComponent|-router: Router;-authenticationService: AuthenticationService;-cartStoreService: CartStoreService;-cartService: CartService|+ngOnInit(): void]
+[OnInit]&lt;:--[AuthCallbackComponent]
+[HomeComponent|-cartStore: CartStoreService|+ngOnInit(): void]
+[OnInit]&lt;:--[HomeComponent]
+[LoginComponent|+login: any;-returnTo: string;-auth: AuthenticationService;-router: Router;-route: ActivatedRoute|+ngOnInit(): void;+submitForm(): void]
+[OnInit]&lt;:--[LoginComponent]
+[PaymentComponent|+cart: Cart;+orderId: Number;-authenticationService: AuthenticationService;-cartService: CartService;-orderService: OrderStoreService|+ngOnInit(): void]
+[OnInit]&lt;:--[PaymentComponent]
+[SearchComponent|+isLoading: boolean;+foundProducts: Product\[\];+productSelected: EventEmitter&lt;Product&gt;;+filterList: EventEmitter&lt;Product\[\]&gt;;+myKeyup: EventEmitter&lt;string&gt;;-productStoreService: ProductStoreService;-authenticationService: AuthenticationService|+ngOnInit(): void;+isAdmin(): Boolean]
+[OnInit]&lt;:--[SearchComponent]
+[AuthenticationService|-oauthService: OAuthService;-router: Router|+login(): boolean;+logout(): void;+isLoggedIn(): boolean;+isAdmin(): Boolean]
+[CartStoreService|-LOCAL_STORAGE_CART: &quot;cart&quot;;-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+getCartBySessionId(): Observable&lt;Cart&gt;;+getCartByCustomerId(): Observable&lt;Cart&gt;;+createCart(): Observable&lt;String&gt;;+putProduct(): Observable&lt;any&gt;;+deleteProduct(): Observable&lt;any&gt;;+referenceCartWithCustomer(): Observable&lt;any&gt;]
+[CartService|+cart$: Observable&lt;Cart&gt;;-cartSubject: Subject&lt;Cart&gt;;-_Cart: Cart;-eventService: EventService;-cartStoreService: CartStoreService;#router: Router;-authenticationService: AuthenticationService;-oauthService: OAuthService|-referenceCart(): void;+newCart(): void;+addProduct(): void;+removeProduct(): void;-persistCart(): void;+initializeCart(): void;-initializeCartNotLoggedIn(): Observable&lt;Cart&gt;;-initializeCart2(): void;+mergeCarts(): Observable&lt;any&gt;]
+[CouponService|-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+applyCoupon(): Observable&lt;any&gt;]
+[DiscountActionStoreService|-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+delete(): Observable&lt;any&gt;;+getAll(): Observable&lt;DiscountAction\[\]&gt;;+create(): Observable&lt;any&gt;]
+[DiscountRuleStoreService|-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+delete(): Observable&lt;any&gt;;+getAll(): Observable&lt;DiscountRule\[\]&gt;;+create(): Observable&lt;any&gt;]
+[DiscountStoreService|-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+getAvailableDiscountsByCartId(): Observable&lt;Discount\[\]&gt;;+getDiscountsByShopId(): Observable&lt;Discount\[\]&gt;;+applyDiscounts(): Observable&lt;any&gt;;+deleteDiscount(): Observable&lt;any&gt;;+create(): Observable&lt;any&gt;]
+[EventService|-addProductToCartEmitChangeSource: Subject&lt;any&gt;;+addProductToCartEmitted$: Observable&lt;any&gt;|+emitAddProductToCart(): void]
+[OrderStoreService|-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+createOrder(): Observable&lt;Number&gt;;+getAllByCustomerId(): Observable&lt;Order\[\]&gt;;+pay(): Observable&lt;any&gt;]
+[ProductStoreService|-http: HttpClient|-errorHandler(): Observable&lt;any&gt;;+getAll(): Observable&lt;Product\[\]&gt;;+getProductsCount(): Observable&lt;number&gt;;+search(): Observable&lt;Product\[\]&gt;;+getById(): Observable&lt;Product&gt;;+postProduct(): Observable&lt;any&gt;;+putProduct(): Observable&lt;any&gt;;+delete(): Observable&lt;Product&gt;]
+[ProductService||]
+[ShopStoreService|-http: HttpClient|+getShopName(): Observable&lt;string&gt;]
+[StatisticsService|+averageRevenuePerMonth: { month: string; revenue: number; }\[\];+timeAndRevenueDistributedPerWeek: { day: string; cartAmount: number; revenue: number; }\[\]|+getAverageRevenuePerMonth(): Observable&lt;any\[\]&gt;;+getTimeAndRevenueDistributed(): Observable&lt;any\[\]&gt;]
+[UuidValidatorDirective||+validate(): { uuid: boolean; } \| null]
+[StatisticsComponent|+averageRevenuePerMonth: any\[\];+timeAndRevenueDistributedPerWeek: any\[\];+averageRevenuePerMonthChartOptions: echarts.EChartsOption;+timeAndRevenueDistributedChartOptions: echarts.EChartsOption;-statisticsService: StatisticsService|+ngOnInit(): void]
+[OnInit]&lt;:--[StatisticsComponent]
+[AdminDiscountActionListComponent|+actions: DiscountAction\[\];+inUseActions: DiscountAction\[\];+deleteDiscountActionEvent: EventEmitter&lt;DiscountAction&gt;|+ngOnInit(): void;+isInUse(): boolean]
+[OnInit]&lt;:--[AdminDiscountActionListComponent]
+[AdminDiscountActionListItemComponent|+action: DiscountAction \| undefined;+isInUse: boolean;+deleteDiscountActionEvent: EventEmitter&lt;DiscountAction&gt;|+ngOnInit(): void]
+[OnInit]&lt;:--[AdminDiscountActionListItemComponent]
+[AdminDiscountFormComponent|+form: FormGroup&lt;any&gt; \| undefined;+actions: DiscountAction\[\];+rules: DiscountRule\[\];-discountRuleStoreService: DiscountRuleStoreService;-discountActionStoreService: DiscountActionStoreService;-discountService: DiscountStoreService;-formBuilder: FormBuilder;-toastService: NgToastService|+ngOnInit(): void;+onSubmit(): void]
+[OnInit]&lt;:--[AdminDiscountFormComponent]
+[AdminDiscountListComponent|+discounts: Discount\[\];+deleteDiscountEvent: EventEmitter&lt;Discount&gt;|+ngOnInit(): void]
+[OnInit]&lt;:--[AdminDiscountListComponent]
+[AdminDiscountListItemComponent|+discount: Discount \| undefined;+deleteDiscountEvent: EventEmitter&lt;Discount&gt;|+ngOnInit(): void]
+[OnInit]&lt;:--[AdminDiscountListItemComponent]
+[AdminDiscountOverviewComponent|+discounts: Discount\[\];+actions: DiscountAction\[\];+inUseActions: DiscountAction\[\];+rules: DiscountRule\[\];+inUseRules: DiscountRule\[\];-discountStoreService: DiscountStoreService;-discountRuleStoreService: DiscountRuleStoreService;-discountActionStoreService: DiscountActionStoreService;-toastService: NgToastService|+ngOnInit(): void;+updateInUseData(): void;+deleteDiscount(): void;+deleteRule(): void;+deleteAction(): void]
+[OnInit]&lt;:--[AdminDiscountOverviewComponent]
+[AdminDiscountRuleListComponent|+rules: DiscountRule\[\];+inUseRules: DiscountRule\[\];+deleteDiscountRuleEvent: EventEmitter&lt;DiscountRule&gt;|+ngOnInit(): void;+isInUse(): boolean]
+[OnInit]&lt;:--[AdminDiscountRuleListComponent]
+[AdminDiscountRuleListItemComponent|+rule: DiscountRule \| undefined;+isInUse: boolean;+deleteDiscountRuleEvent: EventEmitter&lt;DiscountRule&gt;|+ngOnInit(): void]
+[OnInit]&lt;:--[AdminDiscountRuleListItemComponent]
+[CartOverviewComponent|+cart: Cart;+availableDiscounts: Discount\[\];-cartService: CartService;-cartStoreService: CartStoreService;-authenticationService: AuthenticationService;-discountStoreService: DiscountStoreService;#router: Router;-toast: NgToastService|+ngOnInit(): void;-fetchAvailableDiscounts(): void;-getDiscountsNotInCart(): Discount\[\];+addProduct(): void;+removeProduct(): void;+createOrder(): void;+addDiscountToCart(): void;-referenceCartAndCustomer(): void]
+[OnInit]&lt;:--[CartOverviewComponent]
+[CartOverviewListComponent|+productCarts: ProductCart\[\];+addProduct: EventEmitter&lt;Product&gt;;+removeProduct: EventEmitter&lt;Product&gt;|+ngOnInit(): void]
+[OnInit]&lt;:--[CartOverviewListComponent]
+[CartOverviewListItemComponent|+productCart: ProductCart;+addProduct: EventEmitter&lt;Product&gt;;+removeProduct: EventEmitter&lt;Product&gt;;-sanitizer: DomSanitizer|+ngOnInit(): void;+imageUrl(): SafeResourceUrl]
+[OnInit]&lt;:--[CartOverviewListItemComponent]
+[CartWidgetComponent|+productCount: Number;-eventService: EventService;-cartService: CartService|+ngOnInit(): void]
+[OnInit]&lt;:--[CartWidgetComponent]
+[DiscountActionFormComponent|+form: FormGroup&lt;any&gt; \| undefined;+fixedValue: number;+percentValue: number;+name: string;+selectedAction: number;-formBuilder: FormBuilder;-discountActionStoreService: DiscountActionStoreService;-toastService: NgToastService|+ngOnInit(): void;+onSelectChange(): void;+updateValidators(): void;+onSubmit(): void]
+[OnInit]&lt;:--[DiscountActionFormComponent]
+[DiscountListComponent|+discounts: Discount\[\];+addDiscountsEvent: EventEmitter&lt;number\[\]&gt;|+ngOnInit(): void;+invokeApplyDiscounts(): void]
+[OnInit]&lt;:--[DiscountListComponent]
+[DiscountListItemComponent|+discount: Discount;+addDiscountEvent: EventEmitter&lt;Discount&gt;|+ngOnInit(): void]
+[OnInit]&lt;:--[DiscountListItemComponent]
+[DiscountRuleFormComponent|+form: FormGroup&lt;any&gt; \| undefined;+totalCartAmount: number;+name: string;+startDate: Date;+endDate: Date;+selectedRule: number;-formBuilder: FormBuilder;-discountRuleStoreService: DiscountRuleStoreService;-toastService: NgToastService|+ngOnInit(): void;+validateDates(): ValidatorFn;+onTotalCartAmountChanged(): void;+onSubmit(): void;+onSelectChange(): void]
+[OnInit]&lt;:--[DiscountRuleFormComponent]
+[OrderListComponent|+orders: Order\[\];-authenticationService: AuthenticationService;-orderStoreService: OrderStoreService|+ngOnInit(): void]
+[OnInit]&lt;:--[OrderListComponent]
+[OrderListItemComponent|+order: Order|+ngOnInit(): void;+getDiscount(): number]
+[OnInit]&lt;:--[OrderListItemComponent]
+[ProductDetailComponent|+product: Product;-sanitizer: DomSanitizer;-router: Router;-route: ActivatedRoute;-productStoreService: ProductStoreService;-cartService: CartService;-authenticationService: AuthenticationService;-toastService: NgToastService|+ngOnInit(): void;+imageUrl(): SafeResourceUrl;+addToShoppingCart(): void;+isAdmin(): Boolean;+deleteProduct(): void]
+[OnInit]&lt;:--[ProductDetailComponent]
+[ProductDetailEditComponent|+productForm: FormGroup&lt;any&gt; \| undefined;+product: Product;+urlPattern: RegExp;-formBuilder: FormBuilder;-productStoreService: ProductStoreService;-route: ActivatedRoute;-toast: NgToastService|+ngOnInit(): void;+onSubmit(): void;+getProductIdFromRoute(): number;+initProductIfIdAvailable(): void;+showError(): void;+showSuccess(): void]
+[OnInit]&lt;:--[ProductDetailEditComponent]
+[ProductListComponent|+showDetailsEvent: EventEmitter&lt;Product&gt;;+products: Product\[\];+offset: number;+count: number;+maxProducts: number;+paginationItems: number\[\];+filter: string;-productStoreService: ProductStoreService;-activateRoute: ActivatedRoute|+showDetails(): void;+ngOnInit(): void;-fetchAllProducts(): void;-setPaginationItems(): number\[\]]
+[OnInit]&lt;:--[ProductListComponent]
+[ProductListItemComponent|+product: Product;-sanitizer: DomSanitizer;-eventService: EventService;-cartService: CartService|+imageUrl(): SafeResourceUrl;+addToShoppingCart(): void;+ngOnInit(): void]
+[OnInit]&lt;:--[ProductListItemComponent]
+[Cart|+id: number \| undefined;+customerId: number \| null \| undefined;+sessionId: string \| undefined;+price: number;+discountedPrice: number;+productCarts: ProductCart\[\];+discounts: Discount\[\];+coupon: Coupon \| undefined|+getProductCount(): number;+persist(): void;+static createFromLocalStorage(): Cart;+addProduct(): void;-addNewProductCart(): void;+removeProduct(): void]
+[Coupon|+id: number \| undefined;+value: number \| undefined;+couponKey: string \| undefined|]
+[Customer|+id: Number \| undefined;+name: String \| undefined;+email: String \| undefined;+cartId: Number \| undefined;+creditCardNumber: String \| undefined;+creditCardExpiration: String \| undefined|]
+[Discount|+id: number \| undefined;+discountAction: DiscountAction \| undefined;+discountRule: DiscountRule \| undefined|]
+[DiscountAction|+id: number;+name: string|]
+[DiscountRule|+id: number;+name: string|]
+[&lt;interface&gt;CreateDiscount|+ActionId: number;+RuleId: number|]
+[Order|+id: Number \| undefined;+cartId: Number \| undefined;+discount: Number \| undefined;+orderDate: Date \| undefined;+cart: Cart \| undefined;+discounts: Discount\[\] \| undefined|]
+[Product|+id: number \| undefined;+shopId: number \| undefined;+description: string \| undefined;+imageUrl: string \| undefined;+label: string \| undefined;+price: number \| undefined|]
+[ProductCart|+price: number;+amount: number;+product: Product \| undefined|]</desc>
+<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="bold" font-style="normal">
+<g transform="translate(0.5, 0.5)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+<g stroke="transparent" fill="transparent">
+<rect x="0.0" y="0.0" height="717.0" width="22405.5" stroke="none"></rect>
+</g>
+<g transform="translate(8, 8)" fill="#33322E">
+<g transform="translate(20, 20)" fill="#eee8d5" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+<g stroke-dasharray="6 6">
+<path d="M8607.9 183.2 L8428.5 338 L8428.5 474.5 L8428.5 474.5 " fill="none"></path>
+</g>
+<path d="M8611.4 187.2 L8607.9 183.2 L8604.5 179.2 L8618.0 174.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.3 L9217.5 338 L9217.5 395.5 L9217.5 395.5 " fill="none"></path>
+</g>
+<path d="M15561.8 165.6 L15561.7 160.3 L15561.5 154.9 L15575.0 159.9 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M21961.5 187.8 L21961.5 338 L21961.5 455.5 L21961.5 455.5 " fill="none"></path>
+</g>
+<path d="M21966.8 187.8 L21961.5 187.8 L21956.2 187.8 L21961.5 174.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M8664.1 183.2 L8843.5 338 L8843.5 474.5 L8843.5 474.5 " fill="none"></path>
+</g>
+<path d="M8667.5 179.2 L8664.1 183.2 L8660.6 187.2 L8654.0 174.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.3 L9598 338 L9598 418 L9598.0 418.0 " fill="none"></path>
+</g>
+<path d="M15561.8 165.7 L15561.7 160.3 L15561.5 155.0 L15575.0 159.9 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.4 L10009 338 L10009 440.5 L10009.0 440.5 " fill="none"></path>
+</g>
+<path d="M15561.8 165.8 L15561.7 160.4 L15561.5 155.1 L15575.0 160.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.5 L10355.5 338 L10355.5 463 L10355.5 463.0 " fill="none"></path>
+</g>
+<path d="M15561.9 165.9 L15561.7 160.5 L15561.5 155.2 L15575.0 160.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.6 L10634 338 L10634 425.5 L10634.0 425.5 " fill="none"></path>
+</g>
+<path d="M15561.9 165.9 L15561.7 160.6 L15561.5 155.3 L15575.0 160.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.7 L10981 338 L10981 433 L10981.0 433.0 " fill="none"></path>
+</g>
+<path d="M15561.9 166.1 L15561.7 160.7 L15561.5 155.4 L15575.0 160.2 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 160.9 L11396 338 L11396 410.5 L11396.0 410.5 " fill="none"></path>
+</g>
+<path d="M15561.9 166.2 L15561.7 160.9 L15561.5 155.6 L15575.0 160.3 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 161.2 L11893 338 L11893 433 L11893.0 433.0 " fill="none"></path>
+</g>
+<path d="M15561.9 166.5 L15561.7 161.2 L15561.4 155.8 L15575.0 160.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 161.5 L12445.5 338 L12445.5 440.5 L12445.5 440.5 " fill="none"></path>
+</g>
+<path d="M15562.0 166.9 L15561.7 161.5 L15561.4 156.2 L15575.0 160.8 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 162.0 L12971.5 338 L12971.5 448 L12971.5 448.0 " fill="none"></path>
+</g>
+<path d="M15562.1 167.4 L15561.7 162.0 L15561.3 156.7 L15575.0 161.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 162.8 L13488.5 338 L13488.5 403 L13488.5 403.0 " fill="none"></path>
+</g>
+<path d="M15562.2 168.1 L15561.7 162.8 L15561.3 157.5 L15575.0 161.7 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.7 163.9 L13956.5 338 L13956.5 455.5 L13956.5 455.5 " fill="none"></path>
+</g>
+<path d="M15562.3 169.2 L15561.7 163.9 L15561.2 158.6 L15575.0 162.4 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15561.8 165.5 L14384.5 338 L14384.5 455.5 L14384.5 455.5 " fill="none"></path>
+</g>
+<path d="M15562.6 170.8 L15561.8 165.5 L15561.0 160.3 L15575.0 163.6 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15562.0 169.6 L14852.5 338 L14852.5 373 L14852.5 373.0 " fill="none"></path>
+</g>
+<path d="M15563.3 174.7 L15562.0 169.6 L15560.8 164.4 L15575.0 166.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15574.0 182.3 L15356.5 338 L15356.5 440.5 L15356.5 440.5 " fill="none"></path>
+</g>
+<path d="M15577.1 186.6 L15574.0 182.3 L15570.9 177.9 L15584.9 174.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15639.0 182.3 L15856.5 338 L15856.5 448 L15856.5 448.0 " fill="none"></path>
+</g>
+<path d="M15642.1 177.9 L15639.0 182.3 L15635.9 186.6 L15628.1 174.5 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15650.9 170.2 L16314 338 L16314 358 L16314.0 358.0 " fill="none"></path>
+</g>
+<path d="M15652.2 165.1 L15650.9 170.2 L15649.6 175.4 L15638.0 167.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.2 166.2 L16710 338 L16710 448 L16710.0 448.0 " fill="none"></path>
+</g>
+<path d="M15652.0 161.0 L15651.2 166.2 L15650.3 171.5 L15638.0 164.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.2 164.4 L17087 338 L17087 433 L17087.0 433.0 " fill="none"></path>
+</g>
+<path d="M15651.9 159.1 L15651.2 164.4 L15650.6 169.7 L15638.0 162.8 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 163.4 L17415 338 L17415 448 L17415.0 448.0 " fill="none"></path>
+</g>
+<path d="M15651.8 158.1 L15651.3 163.4 L15650.7 168.7 L15638.0 162.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 162.6 L17808.5 338 L17808.5 388 L17808.5 388.0 " fill="none"></path>
+</g>
+<path d="M15651.7 157.3 L15651.3 162.6 L15650.9 168.0 L15638.0 161.6 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 162.0 L18272 338 L18272 448 L18272.0 448.0 " fill="none"></path>
+</g>
+<path d="M15651.7 156.7 L15651.3 162.0 L15650.9 167.3 L15638.0 161.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 161.6 L18686 338 L18686 455.5 L18686.0 455.5 " fill="none"></path>
+</g>
+<path d="M15651.6 156.3 L15651.3 161.6 L15651.0 166.9 L15638.0 160.8 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 161.3 L19131.5 338 L19131.5 373 L19131.5 373.0 " fill="none"></path>
+</g>
+<path d="M15651.6 155.9 L15651.3 161.3 L15651.0 166.6 L15638.0 160.6 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 161.0 L19580 338 L19580 448 L19580.0 448.0 " fill="none"></path>
+</g>
+<path d="M15651.6 155.7 L15651.3 161.0 L15651.1 166.3 L15638.0 160.4 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 160.9 L19914.5 338 L19914.5 455.5 L19914.5 455.5 " fill="none"></path>
+</g>
+<path d="M15651.5 155.5 L15651.3 160.9 L15651.1 166.2 L15638.0 160.3 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 160.7 L20249 338 L20249 380.5 L20249.0 380.5 " fill="none"></path>
+</g>
+<path d="M15651.5 155.4 L15651.3 160.7 L15651.1 166.1 L15638.0 160.2 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 160.6 L20660.5 338 L20660.5 380.5 L20660.5 380.5 " fill="none"></path>
+</g>
+<path d="M15651.5 155.3 L15651.3 160.6 L15651.1 165.9 L15638.0 160.1 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 160.5 L21063 338 L21063 380.5 L21063.0 380.5 " fill="none"></path>
+</g>
+<path d="M15651.5 155.1 L15651.3 160.5 L15651.2 165.8 L15638.0 160.0 Z"></path>
+<g stroke-dasharray="6 6">
+<path d="M15651.3 160.4 L21407.5 338 L21407.5 425.5 L21407.5 425.5 " fill="none"></path>
+</g>
+<path d="M15651.5 155.1 L15651.3 160.4 L15651.2 165.7 L15638.0 160.0 Z"></path>
+<g data-name="AddAppKeyInterceptorInterceptor">
+<g fill="#eee8d5" stroke="#33322E" data-name="AddAppKeyInterceptorInterceptor">
+<rect x="8231.0" y="475.0" height="70.0" width="396.0" data-name="AddAppKeyInterceptorInterceptor"></rect>
+<path d="M8231.0 506.0 L8627.0 506.0" fill="none" data-name="AddAppKeyInterceptorInterceptor"></path>
+<path d="M8231.0 514.0 L8627.0 514.0" fill="none" data-name="AddAppKeyInterceptorInterceptor"></path>
+</g>
+<g transform="translate(8231, 475)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AddAppKeyInterceptorInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AddAppKeyInterceptorInterceptor">
+<a id="src\app\add-app-key-interceptor.interceptor.ts.AddAppKeyInterceptorInterceptor" xlink:href="src\app\add-app-key-interceptor.interceptor.ts"><text x="190.0" y="13.5" stroke="none" text-anchor="middle" data-name="AddAppKeyInterceptorInterceptor">AddAppKeyInterceptorInterceptor</text></a>
+
+</g>
+</g>
+<g transform="translate(8231, 506)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AddAppKeyInterceptorInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AddAppKeyInterceptorInterceptor">
+
+</g>
+</g>
+<g transform="translate(8231, 514)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AddAppKeyInterceptorInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AddAppKeyInterceptorInterceptor">
+<text x="0.0" y="13.5" stroke="none" data-name="AddAppKeyInterceptorInterceptor">+intercept(): Observable&lt;HttpEvent&lt;unknown&gt;&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="AppRoutingModule">
+<g fill="#eee8d5" stroke="#33322E" data-name="AppRoutingModule">
+<rect x="0.0" y="136.0" height="47.0" width="166.0" data-name="AppRoutingModule"></rect>
+<path d="M0.0 167.0 L166.0 167.0" fill="none" data-name="AppRoutingModule"></path>
+<path d="M0.0 175.0 L166.0 175.0" fill="none" data-name="AppRoutingModule"></path>
+</g>
+<g transform="translate(0, 136)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AppRoutingModule">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AppRoutingModule">
+<a id="src\app\app-routing.module.ts.AppRoutingModule" xlink:href="src\app\app-routing.module.ts"><text x="75.0" y="13.5" stroke="none" text-anchor="middle" data-name="AppRoutingModule">AppRoutingModule</text></a>
+
+</g>
+</g>
+<g transform="translate(0, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppRoutingModule">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AppRoutingModule">
+
+</g>
+</g>
+<g transform="translate(0, 175)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppRoutingModule">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AppRoutingModule">
+
+</g>
+</g>
+</g>
+<g data-name="AppComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AppComponent">
+<rect x="9061.0" y="396.0" height="228.0" width="314.0" data-name="AppComponent"></rect>
+<path d="M9061.0 427.0 L9375.0 427.0" fill="none" data-name="AppComponent"></path>
+<path d="M9061.0 533.0 L9375.0 533.0" fill="none" data-name="AppComponent"></path>
+</g>
+<g transform="translate(9061, 396)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AppComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AppComponent">
+<a id="src\app\app.component.ts.AppComponent" xlink:href="src\app\app.component.ts"><text x="149.0" y="13.5" stroke="none" text-anchor="middle" data-name="AppComponent">AppComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(9061, 427)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AppComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AppComponent">+shopName: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AppComponent">+title: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AppComponent">-authService: AuthenticationService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AppComponent">-oauthService: OAuthService</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AppComponent">-router: Router</text>
+<text x="0.0" y="88.5" stroke="none" data-name="AppComponent">-shopStoreService: ShopStoreService</text>
+
+</g>
+</g>
+<g transform="translate(9061, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AppComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AppComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AppComponent">+isLoggedIn(): boolean</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AppComponent">+isAdmin(): Boolean</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AppComponent">-configureWithNewConfigApi(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AppComponent">+logout(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AppModule">
+<g fill="#eee8d5" stroke="#33322E" data-name="AppModule">
+<rect x="206.0" y="136.0" height="47.0" width="105.0" data-name="AppModule"></rect>
+<path d="M206.0 167.0 L311.0 167.0" fill="none" data-name="AppModule"></path>
+<path d="M206.0 175.0 L311.0 175.0" fill="none" data-name="AppModule"></path>
+</g>
+<g transform="translate(206, 136)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AppModule">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AppModule">
+<a id="src\app\app.module.ts.AppModule" xlink:href="src\app\app.module.ts"><text x="44.5" y="13.5" stroke="none" text-anchor="middle" data-name="AppModule">AppModule</text></a>
+
+</g>
+</g>
+<g transform="translate(206, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppModule">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AppModule">
+
+</g>
+</g>
+<g transform="translate(206, 175)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AppModule">
+<g transform="translate(8, 8)" fill="#33322E" data-name="AppModule">
+
+</g>
+</g>
+</g>
+<g data-name="CanNavigateToUserGuard">
+<g fill="#eee8d5" stroke="#33322E" data-name="CanNavigateToUserGuard">
+<rect x="21574.0" y="456.0" height="108.0" width="776.0" data-name="CanNavigateToUserGuard"></rect>
+<path d="M21574.0 487.0 L22350.0 487.0" fill="none" data-name="CanNavigateToUserGuard"></path>
+<path d="M21574.0 533.0 L22350.0 533.0" fill="none" data-name="CanNavigateToUserGuard"></path>
+</g>
+<g transform="translate(21574, 456)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CanNavigateToUserGuard">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CanNavigateToUserGuard">
+<a id="src\app\CanNavigateToUserGuard.ts.CanNavigateToUserGuard" xlink:href="src\app\CanNavigateToUserGuard.ts"><text x="380.0" y="13.5" stroke="none" text-anchor="middle" data-name="CanNavigateToUserGuard">CanNavigateToUserGuard</text></a>
+
+</g>
+</g>
+<g transform="translate(21574, 487)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CanNavigateToUserGuard">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CanNavigateToUserGuard">
+<text x="0.0" y="13.5" stroke="none" data-name="CanNavigateToUserGuard">#router: Router</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CanNavigateToUserGuard">#auth: AuthenticationService</text>
+
+</g>
+</g>
+<g transform="translate(21574, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CanNavigateToUserGuard">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CanNavigateToUserGuard">
+<text x="0.0" y="13.5" stroke="none" data-name="CanNavigateToUserGuard">+canActivate(): boolean | UrlTree | Observable&lt;boolean | UrlTree&gt; | Promise&lt;boolean | UrlTree&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="HttpErrorInterceptor">
+<g fill="#eee8d5" stroke="#33322E" data-name="HttpErrorInterceptor">
+<rect x="8667.0" y="475.0" height="70.0" width="354.0" data-name="HttpErrorInterceptor"></rect>
+<path d="M8667.0 506.0 L9021.0 506.0" fill="none" data-name="HttpErrorInterceptor"></path>
+<path d="M8667.0 514.0 L9021.0 514.0" fill="none" data-name="HttpErrorInterceptor"></path>
+</g>
+<g transform="translate(8667, 475)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="HttpErrorInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="HttpErrorInterceptor">
+<a id="src\app\httperror.interceptor.ts.HttpErrorInterceptor" xlink:href="src\app\httperror.interceptor.ts"><text x="169.0" y="13.5" stroke="none" text-anchor="middle" data-name="HttpErrorInterceptor">HttpErrorInterceptor</text></a>
+
+</g>
+</g>
+<g transform="translate(8667, 506)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="HttpErrorInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" data-name="HttpErrorInterceptor">
+
+</g>
+</g>
+<g transform="translate(8667, 514)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="HttpErrorInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="HttpErrorInterceptor">
+<text x="0.0" y="13.5" stroke="none" data-name="HttpErrorInterceptor">+intercept(): Observable&lt;HttpEvent&lt;any&gt;&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="ApplyCouponComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ApplyCouponComponent">
+<rect x="9415.0" y="418.0" height="183.0" width="367.0" data-name="ApplyCouponComponent"></rect>
+<path d="M9415.0 449.0 L9782.0 449.0" fill="none" data-name="ApplyCouponComponent"></path>
+<path d="M9415.0 555.0 L9782.0 555.0" fill="none" data-name="ApplyCouponComponent"></path>
+</g>
+<g transform="translate(9415, 418)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ApplyCouponComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ApplyCouponComponent">
+<a id="src\app\apply-coupon\apply-coupon.component.ts.ApplyCouponComponent" xlink:href="src\app\apply-coupon\apply-coupon.component.ts"><text x="175.5" y="13.5" stroke="none" text-anchor="middle" data-name="ApplyCouponComponent">ApplyCouponComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(9415, 449)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ApplyCouponComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ApplyCouponComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ApplyCouponComponent">+couponForm: FormGroup&lt;any&gt; | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ApplyCouponComponent">+couponKey: string | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ApplyCouponComponent">-couponStoreService: CouponService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ApplyCouponComponent">-cartService: CartService</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ApplyCouponComponent">-formBuilder: FormBuilder</text>
+<text x="0.0" y="88.5" stroke="none" data-name="ApplyCouponComponent">-toast: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(9415, 555)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ApplyCouponComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ApplyCouponComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ApplyCouponComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ApplyCouponComponent">+onSubmit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AuthCallbackComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AuthCallbackComponent">
+<rect x="9822.0" y="441.0" height="138.0" width="375.0" data-name="AuthCallbackComponent"></rect>
+<path d="M9822.0 472.0 L10197.0 472.0" fill="none" data-name="AuthCallbackComponent"></path>
+<path d="M9822.0 548.0 L10197.0 548.0" fill="none" data-name="AuthCallbackComponent"></path>
+</g>
+<g transform="translate(9822, 441)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AuthCallbackComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AuthCallbackComponent">
+<a id="src\app\authcallback\authcallback.component.ts.AuthCallbackComponent" xlink:href="src\app\authcallback\authcallback.component.ts"><text x="179.5" y="13.5" stroke="none" text-anchor="middle" data-name="AuthCallbackComponent">AuthCallbackComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(9822, 472)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthCallbackComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AuthCallbackComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AuthCallbackComponent">-router: Router</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AuthCallbackComponent">-authenticationService: AuthenticationService</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AuthCallbackComponent">-cartStoreService: CartStoreService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AuthCallbackComponent">-cartService: CartService</text>
+
+</g>
+</g>
+<g transform="translate(9822, 548)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthCallbackComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AuthCallbackComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AuthCallbackComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="HomeComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="HomeComponent">
+<rect x="10237.0" y="463.0" height="93.0" width="238.0" data-name="HomeComponent"></rect>
+<path d="M10237.0 494.0 L10475.0 494.0" fill="none" data-name="HomeComponent"></path>
+<path d="M10237.0 525.0 L10475.0 525.0" fill="none" data-name="HomeComponent"></path>
+</g>
+<g transform="translate(10237, 463)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="HomeComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="HomeComponent">
+<a id="src\app\home\home.component.ts.HomeComponent" xlink:href="src\app\home\home.component.ts"><text x="111.0" y="13.5" stroke="none" text-anchor="middle" data-name="HomeComponent">HomeComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(10237, 494)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="HomeComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="HomeComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="HomeComponent">-cartStore: CartStoreService</text>
+
+</g>
+</g>
+<g transform="translate(10237, 525)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="HomeComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="HomeComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="HomeComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="LoginComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="LoginComponent">
+<rect x="10515.0" y="426.0" height="168.0" width="239.0" data-name="LoginComponent"></rect>
+<path d="M10515.0 457.0 L10754.0 457.0" fill="none" data-name="LoginComponent"></path>
+<path d="M10515.0 548.0 L10754.0 548.0" fill="none" data-name="LoginComponent"></path>
+</g>
+<g transform="translate(10515, 426)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="LoginComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="LoginComponent">
+<a id="src\app\login\login.component.ts.LoginComponent" xlink:href="src\app\login\login.component.ts"><text x="111.5" y="13.5" stroke="none" text-anchor="middle" data-name="LoginComponent">LoginComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(10515, 457)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="LoginComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="LoginComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="LoginComponent">+login: any</text>
+<text x="0.0" y="28.5" stroke="none" data-name="LoginComponent">-returnTo: string</text>
+<text x="0.0" y="43.5" stroke="none" data-name="LoginComponent">-auth: AuthenticationService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="LoginComponent">-router: Router</text>
+<text x="0.0" y="73.5" stroke="none" data-name="LoginComponent">-route: ActivatedRoute</text>
+
+</g>
+</g>
+<g transform="translate(10515, 548)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="LoginComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="LoginComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="LoginComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="LoginComponent">+submitForm(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="PaymentComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="PaymentComponent">
+<rect x="10794.0" y="433.0" height="153.0" width="375.0" data-name="PaymentComponent"></rect>
+<path d="M10794.0 464.0 L11169.0 464.0" fill="none" data-name="PaymentComponent"></path>
+<path d="M10794.0 555.0 L11169.0 555.0" fill="none" data-name="PaymentComponent"></path>
+</g>
+<g transform="translate(10794, 433)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="PaymentComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="PaymentComponent">
+<a id="src\app\payment\payment.component.ts.PaymentComponent" xlink:href="src\app\payment\payment.component.ts"><text x="179.5" y="13.5" stroke="none" text-anchor="middle" data-name="PaymentComponent">PaymentComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(10794, 464)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PaymentComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="PaymentComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="PaymentComponent">+cart: Cart</text>
+<text x="0.0" y="28.5" stroke="none" data-name="PaymentComponent">+orderId: Number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="PaymentComponent">-authenticationService: AuthenticationService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="PaymentComponent">-cartService: CartService</text>
+<text x="0.0" y="73.5" stroke="none" data-name="PaymentComponent">-orderService: OrderStoreService</text>
+
+</g>
+</g>
+<g transform="translate(10794, 555)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="PaymentComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="PaymentComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="PaymentComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="SearchComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="SearchComponent">
+<rect x="11209.0" y="411.0" height="198.0" width="375.0" data-name="SearchComponent"></rect>
+<path d="M11209.0 442.0 L11584.0 442.0" fill="none" data-name="SearchComponent"></path>
+<path d="M11209.0 563.0 L11584.0 563.0" fill="none" data-name="SearchComponent"></path>
+</g>
+<g transform="translate(11209, 411)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="SearchComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="SearchComponent">
+<a id="src\app\search\search.component.ts.SearchComponent" xlink:href="src\app\search\search.component.ts"><text x="179.5" y="13.5" stroke="none" text-anchor="middle" data-name="SearchComponent">SearchComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(11209, 442)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="SearchComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="SearchComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="SearchComponent">+isLoading: boolean</text>
+<text x="0.0" y="28.5" stroke="none" data-name="SearchComponent">+foundProducts: Product[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="SearchComponent">+productSelected: EventEmitter&lt;Product&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="SearchComponent">+filterList: EventEmitter&lt;Product[]&gt;</text>
+<text x="0.0" y="73.5" stroke="none" data-name="SearchComponent">+myKeyup: EventEmitter&lt;string&gt;</text>
+<text x="0.0" y="88.5" stroke="none" data-name="SearchComponent">-productStoreService: ProductStoreService</text>
+<text x="0.0" y="103.5" stroke="none" data-name="SearchComponent">-authenticationService: AuthenticationService</text>
+
+</g>
+</g>
+<g transform="translate(11209, 563)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="SearchComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="SearchComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="SearchComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="SearchComponent">+isAdmin(): Boolean</text>
+
+</g>
+</g>
+</g>
+<g data-name="AuthenticationService">
+<g fill="#eee8d5" stroke="#33322E" data-name="AuthenticationService">
+<rect x="351.0" y="83.0" height="153.0" width="244.0" data-name="AuthenticationService"></rect>
+<path d="M351.0 114.0 L595.0 114.0" fill="none" data-name="AuthenticationService"></path>
+<path d="M351.0 160.0 L595.0 160.0" fill="none" data-name="AuthenticationService"></path>
+</g>
+<g transform="translate(351, 83)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AuthenticationService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AuthenticationService">
+<a id="src\app\shared\authentication.service.ts.AuthenticationService" xlink:href="src\app\shared\authentication.service.ts"><text x="114.0" y="13.5" stroke="none" text-anchor="middle" data-name="AuthenticationService">AuthenticationService</text></a>
+
+</g>
+</g>
+<g transform="translate(351, 114)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthenticationService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AuthenticationService">
+<text x="0.0" y="13.5" stroke="none" data-name="AuthenticationService">-oauthService: OAuthService</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AuthenticationService">-router: Router</text>
+
+</g>
+</g>
+<g transform="translate(351, 160)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AuthenticationService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AuthenticationService">
+<text x="0.0" y="13.5" stroke="none" data-name="AuthenticationService">+login(): boolean</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AuthenticationService">+logout(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AuthenticationService">+isLoggedIn(): boolean</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AuthenticationService">+isAdmin(): Boolean</text>
+
+</g>
+</g>
+</g>
+<g data-name="CartStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="CartStoreService">
+<rect x="635.0" y="60.0" height="198.0" width="408.0" data-name="CartStoreService"></rect>
+<path d="M635.0 91.0 L1043.0 91.0" fill="none" data-name="CartStoreService"></path>
+<path d="M635.0 137.0 L1043.0 137.0" fill="none" data-name="CartStoreService"></path>
+</g>
+<g transform="translate(635, 60)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CartStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CartStoreService">
+<a id="src\app\shared\cart-store.service.ts.CartStoreService" xlink:href="src\app\shared\cart-store.service.ts"><text x="196.0" y="13.5" stroke="none" text-anchor="middle" data-name="CartStoreService">CartStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(635, 91)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="CartStoreService">-LOCAL_STORAGE_CART: &quot;cart&quot;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(635, 137)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="CartStoreService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartStoreService">+getCartBySessionId(): Observable&lt;Cart&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartStoreService">+getCartByCustomerId(): Observable&lt;Cart&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CartStoreService">+createCart(): Observable&lt;String&gt;</text>
+<text x="0.0" y="73.5" stroke="none" data-name="CartStoreService">+putProduct(): Observable&lt;any&gt;</text>
+<text x="0.0" y="88.5" stroke="none" data-name="CartStoreService">+deleteProduct(): Observable&lt;any&gt;</text>
+<text x="0.0" y="103.5" stroke="none" data-name="CartStoreService">+referenceCartWithCustomer(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="CartService">
+<g fill="#eee8d5" stroke="#33322E" data-name="CartService">
+<rect x="1083.0" y="0.0" height="318.0" width="387.0" data-name="CartService"></rect>
+<path d="M1083.0 31.0 L1470.0 31.0" fill="none" data-name="CartService"></path>
+<path d="M1083.0 167.0 L1470.0 167.0" fill="none" data-name="CartService"></path>
+</g>
+<g transform="translate(1083, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CartService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CartService">
+<a id="src\app\shared\cart.service.ts.CartService" xlink:href="src\app\shared\cart.service.ts"><text x="185.5" y="13.5" stroke="none" text-anchor="middle" data-name="CartService">CartService</text></a>
+
+</g>
+</g>
+<g transform="translate(1083, 31)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartService">
+<text x="0.0" y="13.5" stroke="none" data-name="CartService">+cart$: Observable&lt;Cart&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartService">-cartSubject: Subject&lt;Cart&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartService">-_Cart: Cart</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CartService">-eventService: EventService</text>
+<text x="0.0" y="73.5" stroke="none" data-name="CartService">-cartStoreService: CartStoreService</text>
+<text x="0.0" y="88.5" stroke="none" data-name="CartService">#router: Router</text>
+<text x="0.0" y="103.5" stroke="none" data-name="CartService">-authenticationService: AuthenticationService</text>
+<text x="0.0" y="118.5" stroke="none" data-name="CartService">-oauthService: OAuthService</text>
+
+</g>
+</g>
+<g transform="translate(1083, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartService">
+<text x="0.0" y="13.5" stroke="none" data-name="CartService">-referenceCart(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartService">+newCart(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartService">+addProduct(): void</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CartService">+removeProduct(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="CartService">-persistCart(): void</text>
+<text x="0.0" y="88.5" stroke="none" data-name="CartService">+initializeCart(): void</text>
+<text x="0.0" y="103.5" stroke="none" data-name="CartService">-initializeCartNotLoggedIn(): Observable&lt;Cart&gt;</text>
+<text x="0.0" y="118.5" stroke="none" data-name="CartService">-initializeCart2(): void</text>
+<text x="0.0" y="133.5" stroke="none" data-name="CartService">+mergeCarts(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="CouponService">
+<g fill="#eee8d5" stroke="#33322E" data-name="CouponService">
+<rect x="1510.0" y="105.0" height="108.0" width="293.0" data-name="CouponService"></rect>
+<path d="M1510.0 136.0 L1803.0 136.0" fill="none" data-name="CouponService"></path>
+<path d="M1510.0 167.0 L1803.0 167.0" fill="none" data-name="CouponService"></path>
+</g>
+<g transform="translate(1510, 105)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CouponService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CouponService">
+<a id="src\app\shared\coupon.service.ts.CouponService" xlink:href="src\app\shared\coupon.service.ts"><text x="138.5" y="13.5" stroke="none" text-anchor="middle" data-name="CouponService">CouponService</text></a>
+
+</g>
+</g>
+<g transform="translate(1510, 136)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CouponService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CouponService">
+<text x="0.0" y="13.5" stroke="none" data-name="CouponService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(1510, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CouponService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CouponService">
+<text x="0.0" y="13.5" stroke="none" data-name="CouponService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CouponService">+applyCoupon(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountActionStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountActionStoreService">
+<rect x="1843.0" y="90.0" height="138.0" width="331.0" data-name="DiscountActionStoreService"></rect>
+<path d="M1843.0 121.0 L2174.0 121.0" fill="none" data-name="DiscountActionStoreService"></path>
+<path d="M1843.0 152.0 L2174.0 152.0" fill="none" data-name="DiscountActionStoreService"></path>
+</g>
+<g transform="translate(1843, 90)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountActionStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountActionStoreService">
+<a id="src\app\shared\discount-action-store.service.ts.DiscountActionStoreService" xlink:href="src\app\shared\discount-action-store.service.ts"><text x="157.5" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountActionStoreService">DiscountActionStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(1843, 121)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountActionStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountActionStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountActionStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(1843, 152)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountActionStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountActionStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountActionStoreService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountActionStoreService">+delete(): Observable&lt;any&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountActionStoreService">+getAll(): Observable&lt;DiscountAction[]&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountActionStoreService">+create(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountRuleStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountRuleStoreService">
+<rect x="2214.0" y="90.0" height="138.0" width="318.0" data-name="DiscountRuleStoreService"></rect>
+<path d="M2214.0 121.0 L2532.0 121.0" fill="none" data-name="DiscountRuleStoreService"></path>
+<path d="M2214.0 152.0 L2532.0 152.0" fill="none" data-name="DiscountRuleStoreService"></path>
+</g>
+<g transform="translate(2214, 90)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountRuleStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountRuleStoreService">
+<a id="src\app\shared\discount-rule-store.service.ts.DiscountRuleStoreService" xlink:href="src\app\shared\discount-rule-store.service.ts"><text x="151.0" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountRuleStoreService">DiscountRuleStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(2214, 121)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountRuleStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountRuleStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountRuleStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(2214, 152)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountRuleStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountRuleStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountRuleStoreService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountRuleStoreService">+delete(): Observable&lt;any&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountRuleStoreService">+getAll(): Observable&lt;DiscountRule[]&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountRuleStoreService">+create(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountStoreService">
+<rect x="2572.0" y="75.0" height="168.0" width="481.0" data-name="DiscountStoreService"></rect>
+<path d="M2572.0 106.0 L3053.0 106.0" fill="none" data-name="DiscountStoreService"></path>
+<path d="M2572.0 137.0 L3053.0 137.0" fill="none" data-name="DiscountStoreService"></path>
+</g>
+<g transform="translate(2572, 75)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountStoreService">
+<a id="src\app\shared\discount-store.service.ts.DiscountStoreService" xlink:href="src\app\shared\discount-store.service.ts"><text x="232.5" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountStoreService">DiscountStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(2572, 106)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(2572, 137)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountStoreService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountStoreService">+getAvailableDiscountsByCartId(): Observable&lt;Discount[]&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountStoreService">+getDiscountsByShopId(): Observable&lt;Discount[]&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountStoreService">+applyDiscounts(): Observable&lt;any&gt;</text>
+<text x="0.0" y="73.5" stroke="none" data-name="DiscountStoreService">+deleteDiscount(): Observable&lt;any&gt;</text>
+<text x="0.0" y="88.5" stroke="none" data-name="DiscountStoreService">+create(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="EventService">
+<g fill="#eee8d5" stroke="#33322E" data-name="EventService">
+<rect x="3093.0" y="105.0" height="108.0" width="436.0" data-name="EventService"></rect>
+<path d="M3093.0 136.0 L3529.0 136.0" fill="none" data-name="EventService"></path>
+<path d="M3093.0 182.0 L3529.0 182.0" fill="none" data-name="EventService"></path>
+</g>
+<g transform="translate(3093, 105)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="EventService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="EventService">
+<a id="src\app\shared\event.service.ts.EventService" xlink:href="src\app\shared\event.service.ts"><text x="210.0" y="13.5" stroke="none" text-anchor="middle" data-name="EventService">EventService</text></a>
+
+</g>
+</g>
+<g transform="translate(3093, 136)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="EventService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="EventService">
+<text x="0.0" y="13.5" stroke="none" data-name="EventService">-addProductToCartEmitChangeSource: Subject&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="EventService">+addProductToCartEmitted$: Observable&lt;any&gt;</text>
+
+</g>
+</g>
+<g transform="translate(3093, 182)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="EventService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="EventService">
+<text x="0.0" y="13.5" stroke="none" data-name="EventService">+emitAddProductToCart(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="OrderStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="OrderStoreService">
+<rect x="3569.0" y="90.0" height="138.0" width="369.0" data-name="OrderStoreService"></rect>
+<path d="M3569.0 121.0 L3938.0 121.0" fill="none" data-name="OrderStoreService"></path>
+<path d="M3569.0 152.0 L3938.0 152.0" fill="none" data-name="OrderStoreService"></path>
+</g>
+<g transform="translate(3569, 90)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OrderStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OrderStoreService">
+<a id="src\app\shared\order-store.service.ts.OrderStoreService" xlink:href="src\app\shared\order-store.service.ts"><text x="176.5" y="13.5" stroke="none" text-anchor="middle" data-name="OrderStoreService">OrderStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(3569, 121)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="OrderStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="OrderStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="OrderStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(3569, 152)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="OrderStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="OrderStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="OrderStoreService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="OrderStoreService">+createOrder(): Observable&lt;Number&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="OrderStoreService">+getAllByCustomerId(): Observable&lt;Order[]&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="OrderStoreService">+pay(): Observable&lt;any&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProductStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductStoreService">
+<rect x="3978.0" y="60.0" height="198.0" width="361.0" data-name="ProductStoreService"></rect>
+<path d="M3978.0 91.0 L4339.0 91.0" fill="none" data-name="ProductStoreService"></path>
+<path d="M3978.0 122.0 L4339.0 122.0" fill="none" data-name="ProductStoreService"></path>
+</g>
+<g transform="translate(3978, 60)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductStoreService">
+<a id="src\app\shared\product-store.service.ts.ProductStoreService" xlink:href="src\app\shared\product-store.service.ts"><text x="172.5" y="13.5" stroke="none" text-anchor="middle" data-name="ProductStoreService">ProductStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(3978, 91)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(3978, 122)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductStoreService">-errorHandler(): Observable&lt;any&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductStoreService">+getAll(): Observable&lt;Product[]&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductStoreService">+getProductsCount(): Observable&lt;number&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductStoreService">+search(): Observable&lt;Product[]&gt;</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ProductStoreService">+getById(): Observable&lt;Product&gt;</text>
+<text x="0.0" y="88.5" stroke="none" data-name="ProductStoreService">+postProduct(): Observable&lt;any&gt;</text>
+<text x="0.0" y="103.5" stroke="none" data-name="ProductStoreService">+putProduct(): Observable&lt;any&gt;</text>
+<text x="0.0" y="118.5" stroke="none" data-name="ProductStoreService">+delete(): Observable&lt;Product&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProductService">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductService">
+<rect x="4379.0" y="136.0" height="47.0" width="136.0" data-name="ProductService"></rect>
+<path d="M4379.0 167.0 L4515.0 167.0" fill="none" data-name="ProductService"></path>
+<path d="M4379.0 175.0 L4515.0 175.0" fill="none" data-name="ProductService"></path>
+</g>
+<g transform="translate(4379, 136)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductService">
+<a id="src\app\shared\product.service.ts.ProductService" xlink:href="src\app\shared\product.service.ts"><text x="60.0" y="13.5" stroke="none" text-anchor="middle" data-name="ProductService">ProductService</text></a>
+
+</g>
+</g>
+<g transform="translate(4379, 167)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductService">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProductService">
+
+</g>
+</g>
+<g transform="translate(4379, 175)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductService">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProductService">
+
+</g>
+</g>
+</g>
+<g data-name="ShopStoreService">
+<g fill="#eee8d5" stroke="#33322E" data-name="ShopStoreService">
+<rect x="4555.0" y="113.0" height="93.0" width="315.0" data-name="ShopStoreService"></rect>
+<path d="M4555.0 144.0 L4870.0 144.0" fill="none" data-name="ShopStoreService"></path>
+<path d="M4555.0 175.0 L4870.0 175.0" fill="none" data-name="ShopStoreService"></path>
+</g>
+<g transform="translate(4555, 113)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ShopStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ShopStoreService">
+<a id="src\app\shared\shop-store.service.ts.ShopStoreService" xlink:href="src\app\shared\shop-store.service.ts"><text x="149.5" y="13.5" stroke="none" text-anchor="middle" data-name="ShopStoreService">ShopStoreService</text></a>
+
+</g>
+</g>
+<g transform="translate(4555, 144)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ShopStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ShopStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="ShopStoreService">-http: HttpClient</text>
+
+</g>
+</g>
+<g transform="translate(4555, 175)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ShopStoreService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ShopStoreService">
+<text x="0.0" y="13.5" stroke="none" data-name="ShopStoreService">+getShopName(): Observable&lt;string&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="StatisticsService">
+<g fill="#eee8d5" stroke="#33322E" data-name="StatisticsService">
+<rect x="4910.0" y="60.0" height="198.0" width="448.0" data-name="StatisticsService"></rect>
+<path d="M4910.0 91.0 L5358.0 91.0" fill="none" data-name="StatisticsService"></path>
+<path d="M4910.0 212.0 L5358.0 212.0" fill="none" data-name="StatisticsService"></path>
+</g>
+<g transform="translate(4910, 60)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="StatisticsService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="StatisticsService">
+<a id="src\app\shared\statistics.service.ts.StatisticsService" xlink:href="src\app\shared\statistics.service.ts"><text x="216.0" y="13.5" stroke="none" text-anchor="middle" data-name="StatisticsService">StatisticsService</text></a>
+
+</g>
+</g>
+<g transform="translate(4910, 91)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="StatisticsService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="StatisticsService">
+<text x="0.0" y="13.5" stroke="none" data-name="StatisticsService">+averageRevenuePerMonth: { month: string</text>
+<text x="0.0" y="28.5" stroke="none" data-name="StatisticsService">revenue: number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="StatisticsService">}[]</text>
+<text x="0.0" y="58.5" stroke="none" data-name="StatisticsService">+timeAndRevenueDistributedPerWeek: { day: string</text>
+<text x="0.0" y="73.5" stroke="none" data-name="StatisticsService">cartAmount: number</text>
+<text x="0.0" y="88.5" stroke="none" data-name="StatisticsService">revenue: number</text>
+<text x="0.0" y="103.5" stroke="none" data-name="StatisticsService">}[]</text>
+
+</g>
+</g>
+<g transform="translate(4910, 212)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="StatisticsService">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="StatisticsService">
+<text x="0.0" y="13.5" stroke="none" data-name="StatisticsService">+getAverageRevenuePerMonth(): Observable&lt;any[]&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="StatisticsService">+getTimeAndRevenueDistributed(): Observable&lt;any[]&gt;</text>
+
+</g>
+</g>
+</g>
+<g data-name="UuidValidatorDirective">
+<g fill="#eee8d5" stroke="#33322E" data-name="UuidValidatorDirective">
+<rect x="5398.0" y="117.0" height="85.0" width="229.0" data-name="UuidValidatorDirective"></rect>
+<path d="M5398.0 148.0 L5627.0 148.0" fill="none" data-name="UuidValidatorDirective"></path>
+<path d="M5398.0 156.0 L5627.0 156.0" fill="none" data-name="UuidValidatorDirective"></path>
+</g>
+<g transform="translate(5398, 117)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="UuidValidatorDirective">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="UuidValidatorDirective">
+<a id="src\app\shared\uuid-validator.directive.ts.UuidValidatorDirective" xlink:href="src\app\shared\uuid-validator.directive.ts"><text x="106.5" y="13.5" stroke="none" text-anchor="middle" data-name="UuidValidatorDirective">UuidValidatorDirective</text></a>
+
+</g>
+</g>
+<g transform="translate(5398, 148)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="UuidValidatorDirective">
+<g transform="translate(8, 8)" fill="#33322E" data-name="UuidValidatorDirective">
+
+</g>
+</g>
+<g transform="translate(5398, 156)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="UuidValidatorDirective">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="UuidValidatorDirective">
+<text x="0.0" y="13.5" stroke="none" data-name="UuidValidatorDirective">+validate(): { uuid: boolean</text>
+<text x="0.0" y="28.5" stroke="none" data-name="UuidValidatorDirective">} | null</text>
+
+</g>
+</g>
+</g>
+<g data-name="StatisticsComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="StatisticsComponent">
+<rect x="11624.0" y="433.0" height="153.0" width="539.0" data-name="StatisticsComponent"></rect>
+<path d="M11624.0 464.0 L12163.0 464.0" fill="none" data-name="StatisticsComponent"></path>
+<path d="M11624.0 555.0 L12163.0 555.0" fill="none" data-name="StatisticsComponent"></path>
+</g>
+<g transform="translate(11624, 433)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="StatisticsComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="StatisticsComponent">
+<a id="src\app\statistics\statistics.component.ts.StatisticsComponent" xlink:href="src\app\statistics\statistics.component.ts"><text x="261.5" y="13.5" stroke="none" text-anchor="middle" data-name="StatisticsComponent">StatisticsComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(11624, 464)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="StatisticsComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="StatisticsComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="StatisticsComponent">+averageRevenuePerMonth: any[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="StatisticsComponent">+timeAndRevenueDistributedPerWeek: any[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="StatisticsComponent">+averageRevenuePerMonthChartOptions: echarts.EChartsOption</text>
+<text x="0.0" y="58.5" stroke="none" data-name="StatisticsComponent">+timeAndRevenueDistributedChartOptions: echarts.EChartsOption</text>
+<text x="0.0" y="73.5" stroke="none" data-name="StatisticsComponent">-statisticsService: StatisticsService</text>
+
+</g>
+</g>
+<g transform="translate(11624, 555)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="StatisticsComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="StatisticsComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="StatisticsComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountActionListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountActionListComponent">
+<rect x="12203.0" y="441.0" height="138.0" width="486.0" data-name="AdminDiscountActionListComponent"></rect>
+<path d="M12203.0 472.0 L12689.0 472.0" fill="none" data-name="AdminDiscountActionListComponent"></path>
+<path d="M12203.0 533.0 L12689.0 533.0" fill="none" data-name="AdminDiscountActionListComponent"></path>
+</g>
+<g transform="translate(12203, 441)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountActionListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountActionListComponent">
+<a id="src\app\admin\admin-discount-action-list\admin-discount-action-list.component.ts.AdminDiscountActionListComponent" xlink:href="src\app\admin\admin-discount-action-list\admin-discount-action-list.component.ts"><text x="235.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountActionListComponent">AdminDiscountActionListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(12203, 472)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountActionListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountActionListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountActionListComponent">+actions: DiscountAction[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountActionListComponent">+inUseActions: DiscountAction[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountActionListComponent">+deleteDiscountActionEvent: EventEmitter&lt;DiscountAction&gt;</text>
+
+</g>
+</g>
+<g transform="translate(12203, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountActionListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountActionListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountActionListComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountActionListComponent">+isInUse(): boolean</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountActionListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountActionListItemComponent">
+<rect x="12729.0" y="448.0" height="123.0" width="486.0" data-name="AdminDiscountActionListItemComponent"></rect>
+<path d="M12729.0 479.0 L13215.0 479.0" fill="none" data-name="AdminDiscountActionListItemComponent"></path>
+<path d="M12729.0 540.0 L13215.0 540.0" fill="none" data-name="AdminDiscountActionListItemComponent"></path>
+</g>
+<g transform="translate(12729, 448)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountActionListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountActionListItemComponent">
+<a id="src\app\admin\admin-discount-action-list-item\admin-discount-action-list-item.component.ts.AdminDiscountActionListItemComponent" xlink:href="src\app\admin\admin-discount-action-list-item\admin-discount-action-list-item.component.ts"><text x="235.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountActionListItemComponent">AdminDiscountActionListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(12729, 479)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountActionListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountActionListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountActionListItemComponent">+action: DiscountAction | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountActionListItemComponent">+isInUse: boolean</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountActionListItemComponent">+deleteDiscountActionEvent: EventEmitter&lt;DiscountAction&gt;</text>
+
+</g>
+</g>
+<g transform="translate(12729, 540)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountActionListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountActionListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountActionListItemComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountFormComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountFormComponent">
+<rect x="13255.0" y="403.0" height="213.0" width="468.0" data-name="AdminDiscountFormComponent"></rect>
+<path d="M13255.0 434.0 L13723.0 434.0" fill="none" data-name="AdminDiscountFormComponent"></path>
+<path d="M13255.0 570.0 L13723.0 570.0" fill="none" data-name="AdminDiscountFormComponent"></path>
+</g>
+<g transform="translate(13255, 403)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountFormComponent">
+<a id="src\app\admin\admin-discount-form\admin-discount-form.component.ts.AdminDiscountFormComponent" xlink:href="src\app\admin\admin-discount-form\admin-discount-form.component.ts"><text x="226.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountFormComponent">AdminDiscountFormComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(13255, 434)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountFormComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountFormComponent">+form: FormGroup&lt;any&gt; | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountFormComponent">+actions: DiscountAction[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountFormComponent">+rules: DiscountRule[]</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AdminDiscountFormComponent">-discountRuleStoreService: DiscountRuleStoreService</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AdminDiscountFormComponent">-discountActionStoreService: DiscountActionStoreService</text>
+<text x="0.0" y="88.5" stroke="none" data-name="AdminDiscountFormComponent">-discountService: DiscountStoreService</text>
+<text x="0.0" y="103.5" stroke="none" data-name="AdminDiscountFormComponent">-formBuilder: FormBuilder</text>
+<text x="0.0" y="118.5" stroke="none" data-name="AdminDiscountFormComponent">-toastService: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(13255, 570)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountFormComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountFormComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountFormComponent">+onSubmit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountListComponent">
+<rect x="13763.0" y="456.0" height="108.0" width="388.0" data-name="AdminDiscountListComponent"></rect>
+<path d="M13763.0 487.0 L14151.0 487.0" fill="none" data-name="AdminDiscountListComponent"></path>
+<path d="M13763.0 533.0 L14151.0 533.0" fill="none" data-name="AdminDiscountListComponent"></path>
+</g>
+<g transform="translate(13763, 456)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountListComponent">
+<a id="src\app\admin\admin-discount-list\admin-discount-list.component.ts.AdminDiscountListComponent" xlink:href="src\app\admin\admin-discount-list\admin-discount-list.component.ts"><text x="186.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountListComponent">AdminDiscountListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(13763, 487)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountListComponent">+discounts: Discount[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountListComponent">+deleteDiscountEvent: EventEmitter&lt;Discount&gt;</text>
+
+</g>
+</g>
+<g transform="translate(13763, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountListComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountListItemComponent">
+<rect x="14191.0" y="456.0" height="108.0" width="388.0" data-name="AdminDiscountListItemComponent"></rect>
+<path d="M14191.0 487.0 L14579.0 487.0" fill="none" data-name="AdminDiscountListItemComponent"></path>
+<path d="M14191.0 533.0 L14579.0 533.0" fill="none" data-name="AdminDiscountListItemComponent"></path>
+</g>
+<g transform="translate(14191, 456)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountListItemComponent">
+<a id="src\app\admin\admin-discount-list-item\admin-discount-list-item.component.ts.AdminDiscountListItemComponent" xlink:href="src\app\admin\admin-discount-list-item\admin-discount-list-item.component.ts"><text x="186.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountListItemComponent">AdminDiscountListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(14191, 487)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountListItemComponent">+discount: Discount | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountListItemComponent">+deleteDiscountEvent: EventEmitter&lt;Discount&gt;</text>
+
+</g>
+</g>
+<g transform="translate(14191, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountListItemComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountOverviewComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountOverviewComponent">
+<rect x="14619.0" y="373.0" height="273.0" width="468.0" data-name="AdminDiscountOverviewComponent"></rect>
+<path d="M14619.0 404.0 L15087.0 404.0" fill="none" data-name="AdminDiscountOverviewComponent"></path>
+<path d="M14619.0 555.0 L15087.0 555.0" fill="none" data-name="AdminDiscountOverviewComponent"></path>
+</g>
+<g transform="translate(14619, 373)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountOverviewComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountOverviewComponent">
+<a id="src\app\admin\admin-discount-overview\admin-discount-overview.component.ts.AdminDiscountOverviewComponent" xlink:href="src\app\admin\admin-discount-overview\admin-discount-overview.component.ts"><text x="226.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountOverviewComponent">AdminDiscountOverviewComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(14619, 404)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountOverviewComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountOverviewComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountOverviewComponent">+discounts: Discount[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountOverviewComponent">+actions: DiscountAction[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountOverviewComponent">+inUseActions: DiscountAction[]</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AdminDiscountOverviewComponent">+rules: DiscountRule[]</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AdminDiscountOverviewComponent">+inUseRules: DiscountRule[]</text>
+<text x="0.0" y="88.5" stroke="none" data-name="AdminDiscountOverviewComponent">-discountStoreService: DiscountStoreService</text>
+<text x="0.0" y="103.5" stroke="none" data-name="AdminDiscountOverviewComponent">-discountRuleStoreService: DiscountRuleStoreService</text>
+<text x="0.0" y="118.5" stroke="none" data-name="AdminDiscountOverviewComponent">-discountActionStoreService: DiscountActionStoreService</text>
+<text x="0.0" y="133.5" stroke="none" data-name="AdminDiscountOverviewComponent">-toastService: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(14619, 555)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountOverviewComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountOverviewComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountOverviewComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountOverviewComponent">+updateInUseData(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountOverviewComponent">+deleteDiscount(): void</text>
+<text x="0.0" y="58.5" stroke="none" data-name="AdminDiscountOverviewComponent">+deleteRule(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="AdminDiscountOverviewComponent">+deleteAction(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountRuleListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountRuleListComponent">
+<rect x="15127.0" y="441.0" height="138.0" width="460.0" data-name="AdminDiscountRuleListComponent"></rect>
+<path d="M15127.0 472.0 L15587.0 472.0" fill="none" data-name="AdminDiscountRuleListComponent"></path>
+<path d="M15127.0 533.0 L15587.0 533.0" fill="none" data-name="AdminDiscountRuleListComponent"></path>
+</g>
+<g transform="translate(15127, 441)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountRuleListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountRuleListComponent">
+<a id="src\app\admin\admin-discount-rule-list\admin-discount-rule-list.component.ts.AdminDiscountRuleListComponent" xlink:href="src\app\admin\admin-discount-rule-list\admin-discount-rule-list.component.ts"><text x="222.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountRuleListComponent">AdminDiscountRuleListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(15127, 472)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountRuleListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountRuleListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountRuleListComponent">+rules: DiscountRule[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountRuleListComponent">+inUseRules: DiscountRule[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountRuleListComponent">+deleteDiscountRuleEvent: EventEmitter&lt;DiscountRule&gt;</text>
+
+</g>
+</g>
+<g transform="translate(15127, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountRuleListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountRuleListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountRuleListComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountRuleListComponent">+isInUse(): boolean</text>
+
+</g>
+</g>
+</g>
+<g data-name="AdminDiscountRuleListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="AdminDiscountRuleListItemComponent">
+<rect x="15627.0" y="448.0" height="123.0" width="460.0" data-name="AdminDiscountRuleListItemComponent"></rect>
+<path d="M15627.0 479.0 L16087.0 479.0" fill="none" data-name="AdminDiscountRuleListItemComponent"></path>
+<path d="M15627.0 540.0 L16087.0 540.0" fill="none" data-name="AdminDiscountRuleListItemComponent"></path>
+</g>
+<g transform="translate(15627, 448)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="AdminDiscountRuleListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="AdminDiscountRuleListItemComponent">
+<a id="src\app\admin\admin-discount-rule-list-item\admin-discount-rule-list-item.component.ts.AdminDiscountRuleListItemComponent" xlink:href="src\app\admin\admin-discount-rule-list-item\admin-discount-rule-list-item.component.ts"><text x="222.0" y="13.5" stroke="none" text-anchor="middle" data-name="AdminDiscountRuleListItemComponent">AdminDiscountRuleListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(15627, 479)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountRuleListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountRuleListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountRuleListItemComponent">+rule: DiscountRule | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="AdminDiscountRuleListItemComponent">+isInUse: boolean</text>
+<text x="0.0" y="43.5" stroke="none" data-name="AdminDiscountRuleListItemComponent">+deleteDiscountRuleEvent: EventEmitter&lt;DiscountRule&gt;</text>
+
+</g>
+</g>
+<g transform="translate(15627, 540)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="AdminDiscountRuleListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="AdminDiscountRuleListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="AdminDiscountRuleListItemComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="CartOverviewComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="CartOverviewComponent">
+<rect x="16127.0" y="358.0" height="303.0" width="375.0" data-name="CartOverviewComponent"></rect>
+<path d="M16127.0 389.0 L16502.0 389.0" fill="none" data-name="CartOverviewComponent"></path>
+<path d="M16127.0 525.0 L16502.0 525.0" fill="none" data-name="CartOverviewComponent"></path>
+</g>
+<g transform="translate(16127, 358)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CartOverviewComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CartOverviewComponent">
+<a id="src\app\cart\cart-overview\cart-overview.component.ts.CartOverviewComponent" xlink:href="src\app\cart\cart-overview\cart-overview.component.ts"><text x="179.5" y="13.5" stroke="none" text-anchor="middle" data-name="CartOverviewComponent">CartOverviewComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(16127, 389)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartOverviewComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartOverviewComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartOverviewComponent">+cart: Cart</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartOverviewComponent">+availableDiscounts: Discount[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartOverviewComponent">-cartService: CartService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CartOverviewComponent">-cartStoreService: CartStoreService</text>
+<text x="0.0" y="73.5" stroke="none" data-name="CartOverviewComponent">-authenticationService: AuthenticationService</text>
+<text x="0.0" y="88.5" stroke="none" data-name="CartOverviewComponent">-discountStoreService: DiscountStoreService</text>
+<text x="0.0" y="103.5" stroke="none" data-name="CartOverviewComponent">#router: Router</text>
+<text x="0.0" y="118.5" stroke="none" data-name="CartOverviewComponent">-toast: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(16127, 525)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartOverviewComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartOverviewComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartOverviewComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartOverviewComponent">-fetchAvailableDiscounts(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartOverviewComponent">-getDiscountsNotInCart(): Discount[]</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CartOverviewComponent">+addProduct(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="CartOverviewComponent">+removeProduct(): void</text>
+<text x="0.0" y="88.5" stroke="none" data-name="CartOverviewComponent">+createOrder(): void</text>
+<text x="0.0" y="103.5" stroke="none" data-name="CartOverviewComponent">+addDiscountToCart(): void</text>
+<text x="0.0" y="118.5" stroke="none" data-name="CartOverviewComponent">-referenceCartAndCustomer(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="CartOverviewListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="CartOverviewListComponent">
+<rect x="16542.0" y="448.0" height="123.0" width="337.0" data-name="CartOverviewListComponent"></rect>
+<path d="M16542.0 479.0 L16879.0 479.0" fill="none" data-name="CartOverviewListComponent"></path>
+<path d="M16542.0 540.0 L16879.0 540.0" fill="none" data-name="CartOverviewListComponent"></path>
+</g>
+<g transform="translate(16542, 448)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CartOverviewListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CartOverviewListComponent">
+<a id="src\app\cart\cart-overview-list\cart-overview-list.component.ts.CartOverviewListComponent" xlink:href="src\app\cart\cart-overview-list\cart-overview-list.component.ts"><text x="160.5" y="13.5" stroke="none" text-anchor="middle" data-name="CartOverviewListComponent">CartOverviewListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(16542, 479)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartOverviewListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartOverviewListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartOverviewListComponent">+productCarts: ProductCart[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartOverviewListComponent">+addProduct: EventEmitter&lt;Product&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartOverviewListComponent">+removeProduct: EventEmitter&lt;Product&gt;</text>
+
+</g>
+</g>
+<g transform="translate(16542, 540)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartOverviewListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartOverviewListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartOverviewListComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="CartOverviewListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="CartOverviewListItemComponent">
+<rect x="16919.0" y="433.0" height="153.0" width="337.0" data-name="CartOverviewListItemComponent"></rect>
+<path d="M16919.0 464.0 L17256.0 464.0" fill="none" data-name="CartOverviewListItemComponent"></path>
+<path d="M16919.0 540.0 L17256.0 540.0" fill="none" data-name="CartOverviewListItemComponent"></path>
+</g>
+<g transform="translate(16919, 433)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CartOverviewListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CartOverviewListItemComponent">
+<a id="src\app\cart\cart-overview-list-item\cart-overview-list-item.component.ts.CartOverviewListItemComponent" xlink:href="src\app\cart\cart-overview-list-item\cart-overview-list-item.component.ts"><text x="160.5" y="13.5" stroke="none" text-anchor="middle" data-name="CartOverviewListItemComponent">CartOverviewListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(16919, 464)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartOverviewListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartOverviewListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartOverviewListItemComponent">+productCart: ProductCart</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartOverviewListItemComponent">+addProduct: EventEmitter&lt;Product&gt;</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartOverviewListItemComponent">+removeProduct: EventEmitter&lt;Product&gt;</text>
+<text x="0.0" y="58.5" stroke="none" data-name="CartOverviewListItemComponent">-sanitizer: DomSanitizer</text>
+
+</g>
+</g>
+<g transform="translate(16919, 540)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartOverviewListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartOverviewListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartOverviewListItemComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartOverviewListItemComponent">+imageUrl(): SafeResourceUrl</text>
+
+</g>
+</g>
+</g>
+<g data-name="CartWidgetComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="CartWidgetComponent">
+<rect x="17296.0" y="448.0" height="123.0" width="239.0" data-name="CartWidgetComponent"></rect>
+<path d="M17296.0 479.0 L17535.0 479.0" fill="none" data-name="CartWidgetComponent"></path>
+<path d="M17296.0 540.0 L17535.0 540.0" fill="none" data-name="CartWidgetComponent"></path>
+</g>
+<g transform="translate(17296, 448)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CartWidgetComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CartWidgetComponent">
+<a id="src\app\cart\cart-widget\cart-widget.component.ts.CartWidgetComponent" xlink:href="src\app\cart\cart-widget\cart-widget.component.ts"><text x="111.5" y="13.5" stroke="none" text-anchor="middle" data-name="CartWidgetComponent">CartWidgetComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(17296, 479)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartWidgetComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartWidgetComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartWidgetComponent">+productCount: Number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CartWidgetComponent">-eventService: EventService</text>
+<text x="0.0" y="43.5" stroke="none" data-name="CartWidgetComponent">-cartService: CartService</text>
+
+</g>
+</g>
+<g transform="translate(17296, 540)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CartWidgetComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CartWidgetComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="CartWidgetComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountActionFormComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountActionFormComponent">
+<rect x="17575.0" y="388.0" height="243.0" width="468.0" data-name="DiscountActionFormComponent"></rect>
+<path d="M17575.0 419.0 L18043.0 419.0" fill="none" data-name="DiscountActionFormComponent"></path>
+<path d="M17575.0 555.0 L18043.0 555.0" fill="none" data-name="DiscountActionFormComponent"></path>
+</g>
+<g transform="translate(17575, 388)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountActionFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountActionFormComponent">
+<a id="src\app\discount\discount-action-form\discount-action-form.component.ts.DiscountActionFormComponent" xlink:href="src\app\discount\discount-action-form\discount-action-form.component.ts"><text x="226.0" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountActionFormComponent">DiscountActionFormComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(17575, 419)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountActionFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountActionFormComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountActionFormComponent">+form: FormGroup&lt;any&gt; | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountActionFormComponent">+fixedValue: number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountActionFormComponent">+percentValue: number</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountActionFormComponent">+name: string</text>
+<text x="0.0" y="73.5" stroke="none" data-name="DiscountActionFormComponent">+selectedAction: number</text>
+<text x="0.0" y="88.5" stroke="none" data-name="DiscountActionFormComponent">-formBuilder: FormBuilder</text>
+<text x="0.0" y="103.5" stroke="none" data-name="DiscountActionFormComponent">-discountActionStoreService: DiscountActionStoreService</text>
+<text x="0.0" y="118.5" stroke="none" data-name="DiscountActionFormComponent">-toastService: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(17575, 555)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountActionFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountActionFormComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountActionFormComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountActionFormComponent">+onSelectChange(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountActionFormComponent">+updateValidators(): void</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountActionFormComponent">+onSubmit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountListComponent">
+<rect x="18083.0" y="448.0" height="123.0" width="379.0" data-name="DiscountListComponent"></rect>
+<path d="M18083.0 479.0 L18462.0 479.0" fill="none" data-name="DiscountListComponent"></path>
+<path d="M18083.0 525.0 L18462.0 525.0" fill="none" data-name="DiscountListComponent"></path>
+</g>
+<g transform="translate(18083, 448)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountListComponent">
+<a id="src\app\discount\discount-list\discount-list.component.ts.DiscountListComponent" xlink:href="src\app\discount\discount-list\discount-list.component.ts"><text x="181.5" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountListComponent">DiscountListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(18083, 479)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountListComponent">+discounts: Discount[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountListComponent">+addDiscountsEvent: EventEmitter&lt;number[]&gt;</text>
+
+</g>
+</g>
+<g transform="translate(18083, 525)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountListComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountListComponent">+invokeApplyDiscounts(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountListItemComponent">
+<rect x="18502.0" y="456.0" height="108.0" width="369.0" data-name="DiscountListItemComponent"></rect>
+<path d="M18502.0 487.0 L18871.0 487.0" fill="none" data-name="DiscountListItemComponent"></path>
+<path d="M18502.0 533.0 L18871.0 533.0" fill="none" data-name="DiscountListItemComponent"></path>
+</g>
+<g transform="translate(18502, 456)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountListItemComponent">
+<a id="src\app\discount\discount-list-item\discount-list-item.component.ts.DiscountListItemComponent" xlink:href="src\app\discount\discount-list-item\discount-list-item.component.ts"><text x="176.5" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountListItemComponent">DiscountListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(18502, 487)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountListItemComponent">+discount: Discount</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountListItemComponent">+addDiscountEvent: EventEmitter&lt;Discount&gt;</text>
+
+</g>
+</g>
+<g transform="translate(18502, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountListItemComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="DiscountRuleFormComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountRuleFormComponent">
+<rect x="18911.0" y="373.0" height="273.0" width="442.0" data-name="DiscountRuleFormComponent"></rect>
+<path d="M18911.0 404.0 L19353.0 404.0" fill="none" data-name="DiscountRuleFormComponent"></path>
+<path d="M18911.0 555.0 L19353.0 555.0" fill="none" data-name="DiscountRuleFormComponent"></path>
+</g>
+<g transform="translate(18911, 373)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountRuleFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountRuleFormComponent">
+<a id="src\app\discount\discount-rule-form\discount-rule-form.component.ts.DiscountRuleFormComponent" xlink:href="src\app\discount\discount-rule-form\discount-rule-form.component.ts"><text x="213.0" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountRuleFormComponent">DiscountRuleFormComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(18911, 404)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountRuleFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountRuleFormComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountRuleFormComponent">+form: FormGroup&lt;any&gt; | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountRuleFormComponent">+totalCartAmount: number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountRuleFormComponent">+name: string</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountRuleFormComponent">+startDate: Date</text>
+<text x="0.0" y="73.5" stroke="none" data-name="DiscountRuleFormComponent">+endDate: Date</text>
+<text x="0.0" y="88.5" stroke="none" data-name="DiscountRuleFormComponent">+selectedRule: number</text>
+<text x="0.0" y="103.5" stroke="none" data-name="DiscountRuleFormComponent">-formBuilder: FormBuilder</text>
+<text x="0.0" y="118.5" stroke="none" data-name="DiscountRuleFormComponent">-discountRuleStoreService: DiscountRuleStoreService</text>
+<text x="0.0" y="133.5" stroke="none" data-name="DiscountRuleFormComponent">-toastService: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(18911, 555)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountRuleFormComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountRuleFormComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountRuleFormComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountRuleFormComponent">+validateDates(): ValidatorFn</text>
+<text x="0.0" y="43.5" stroke="none" data-name="DiscountRuleFormComponent">+onTotalCartAmountChanged(): void</text>
+<text x="0.0" y="58.5" stroke="none" data-name="DiscountRuleFormComponent">+onSubmit(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="DiscountRuleFormComponent">+onSelectChange(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="OrderListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="OrderListComponent">
+<rect x="19393.0" y="448.0" height="123.0" width="375.0" data-name="OrderListComponent"></rect>
+<path d="M19393.0 479.0 L19768.0 479.0" fill="none" data-name="OrderListComponent"></path>
+<path d="M19393.0 540.0 L19768.0 540.0" fill="none" data-name="OrderListComponent"></path>
+</g>
+<g transform="translate(19393, 448)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OrderListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OrderListComponent">
+<a id="src\app\order\order-list\order-list.component.ts.OrderListComponent" xlink:href="src\app\order\order-list\order-list.component.ts"><text x="179.5" y="13.5" stroke="none" text-anchor="middle" data-name="OrderListComponent">OrderListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(19393, 479)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="OrderListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="OrderListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="OrderListComponent">+orders: Order[]</text>
+<text x="0.0" y="28.5" stroke="none" data-name="OrderListComponent">-authenticationService: AuthenticationService</text>
+<text x="0.0" y="43.5" stroke="none" data-name="OrderListComponent">-orderStoreService: OrderStoreService</text>
+
+</g>
+</g>
+<g transform="translate(19393, 540)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="OrderListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="OrderListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="OrderListComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="OrderListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="OrderListItemComponent">
+<rect x="19808.0" y="456.0" height="108.0" width="214.0" data-name="OrderListItemComponent"></rect>
+<path d="M19808.0 487.0 L20022.0 487.0" fill="none" data-name="OrderListItemComponent"></path>
+<path d="M19808.0 518.0 L20022.0 518.0" fill="none" data-name="OrderListItemComponent"></path>
+</g>
+<g transform="translate(19808, 456)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OrderListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OrderListItemComponent">
+<a id="src\app\order\order-list-item\order-list-item.component.ts.OrderListItemComponent" xlink:href="src\app\order\order-list-item\order-list-item.component.ts"><text x="99.0" y="13.5" stroke="none" text-anchor="middle" data-name="OrderListItemComponent">OrderListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(19808, 487)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="OrderListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="OrderListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="OrderListItemComponent">+order: Order</text>
+
+</g>
+</g>
+<g transform="translate(19808, 518)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="OrderListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="OrderListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="OrderListItemComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="OrderListItemComponent">+getDiscount(): number</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProductDetailComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductDetailComponent">
+<rect x="20062.0" y="381.0" height="258.0" width="375.0" data-name="ProductDetailComponent"></rect>
+<path d="M20062.0 412.0 L20437.0 412.0" fill="none" data-name="ProductDetailComponent"></path>
+<path d="M20062.0 548.0 L20437.0 548.0" fill="none" data-name="ProductDetailComponent"></path>
+</g>
+<g transform="translate(20062, 381)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductDetailComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductDetailComponent">
+<a id="src\app\product\product-detail\product-detail.component.ts.ProductDetailComponent" xlink:href="src\app\product\product-detail\product-detail.component.ts"><text x="179.5" y="13.5" stroke="none" text-anchor="middle" data-name="ProductDetailComponent">ProductDetailComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(20062, 412)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductDetailComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductDetailComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductDetailComponent">+product: Product</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductDetailComponent">-sanitizer: DomSanitizer</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductDetailComponent">-router: Router</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductDetailComponent">-route: ActivatedRoute</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ProductDetailComponent">-productStoreService: ProductStoreService</text>
+<text x="0.0" y="88.5" stroke="none" data-name="ProductDetailComponent">-cartService: CartService</text>
+<text x="0.0" y="103.5" stroke="none" data-name="ProductDetailComponent">-authenticationService: AuthenticationService</text>
+<text x="0.0" y="118.5" stroke="none" data-name="ProductDetailComponent">-toastService: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(20062, 548)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductDetailComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductDetailComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductDetailComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductDetailComponent">+imageUrl(): SafeResourceUrl</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductDetailComponent">+addToShoppingCart(): void</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductDetailComponent">+isAdmin(): Boolean</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ProductDetailComponent">+deleteProduct(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProductDetailEditComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductDetailEditComponent">
+<rect x="20477.0" y="381.0" height="258.0" width="368.0" data-name="ProductDetailEditComponent"></rect>
+<path d="M20477.0 412.0 L20845.0 412.0" fill="none" data-name="ProductDetailEditComponent"></path>
+<path d="M20477.0 533.0 L20845.0 533.0" fill="none" data-name="ProductDetailEditComponent"></path>
+</g>
+<g transform="translate(20477, 381)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductDetailEditComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductDetailEditComponent">
+<a id="src\app\product\product-detail-edit\product-detail-edit.component.ts.ProductDetailEditComponent" xlink:href="src\app\product\product-detail-edit\product-detail-edit.component.ts"><text x="176.0" y="13.5" stroke="none" text-anchor="middle" data-name="ProductDetailEditComponent">ProductDetailEditComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(20477, 412)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductDetailEditComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductDetailEditComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductDetailEditComponent">+productForm: FormGroup&lt;any&gt; | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductDetailEditComponent">+product: Product</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductDetailEditComponent">+urlPattern: RegExp</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductDetailEditComponent">-formBuilder: FormBuilder</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ProductDetailEditComponent">-productStoreService: ProductStoreService</text>
+<text x="0.0" y="88.5" stroke="none" data-name="ProductDetailEditComponent">-route: ActivatedRoute</text>
+<text x="0.0" y="103.5" stroke="none" data-name="ProductDetailEditComponent">-toast: NgToastService</text>
+
+</g>
+</g>
+<g transform="translate(20477, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductDetailEditComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductDetailEditComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductDetailEditComponent">+ngOnInit(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductDetailEditComponent">+onSubmit(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductDetailEditComponent">+getProductIdFromRoute(): number</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductDetailEditComponent">+initProductIfIdAvailable(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ProductDetailEditComponent">+showError(): void</text>
+<text x="0.0" y="88.5" stroke="none" data-name="ProductDetailEditComponent">+showSuccess(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProductListComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductListComponent">
+<rect x="20885.0" y="381.0" height="258.0" width="357.0" data-name="ProductListComponent"></rect>
+<path d="M20885.0 412.0 L21242.0 412.0" fill="none" data-name="ProductListComponent"></path>
+<path d="M20885.0 563.0 L21242.0 563.0" fill="none" data-name="ProductListComponent"></path>
+</g>
+<g transform="translate(20885, 381)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductListComponent">
+<a id="src\app\product\product-list\product-list.component.ts.ProductListComponent" xlink:href="src\app\product\product-list\product-list.component.ts"><text x="170.5" y="13.5" stroke="none" text-anchor="middle" data-name="ProductListComponent">ProductListComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(20885, 412)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductListComponent">+showDetailsEvent: EventEmitter&lt;Product&gt;</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductListComponent">+products: Product[]</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductListComponent">+offset: number</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductListComponent">+count: number</text>
+<text x="0.0" y="73.5" stroke="none" data-name="ProductListComponent">+maxProducts: number</text>
+<text x="0.0" y="88.5" stroke="none" data-name="ProductListComponent">+paginationItems: number[]</text>
+<text x="0.0" y="103.5" stroke="none" data-name="ProductListComponent">+filter: string</text>
+<text x="0.0" y="118.5" stroke="none" data-name="ProductListComponent">-productStoreService: ProductStoreService</text>
+<text x="0.0" y="133.5" stroke="none" data-name="ProductListComponent">-activateRoute: ActivatedRoute</text>
+
+</g>
+</g>
+<g transform="translate(20885, 563)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductListComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductListComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductListComponent">+showDetails(): void</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductListComponent">+ngOnInit(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductListComponent">-fetchAllProducts(): void</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductListComponent">-setPaginationItems(): number[]</text>
+
+</g>
+</g>
+</g>
+<g data-name="ProductListItemComponent">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductListItemComponent">
+<rect x="21282.0" y="426.0" height="168.0" width="252.0" data-name="ProductListItemComponent"></rect>
+<path d="M21282.0 457.0 L21534.0 457.0" fill="none" data-name="ProductListItemComponent"></path>
+<path d="M21282.0 533.0 L21534.0 533.0" fill="none" data-name="ProductListItemComponent"></path>
+</g>
+<g transform="translate(21282, 426)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductListItemComponent">
+<a id="src\app\product\product-list-item\product-list-item.component.ts.ProductListItemComponent" xlink:href="src\app\product\product-list-item\product-list-item.component.ts"><text x="118.0" y="13.5" stroke="none" text-anchor="middle" data-name="ProductListItemComponent">ProductListItemComponent</text></a>
+
+</g>
+</g>
+<g transform="translate(21282, 457)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductListItemComponent">+product: Product</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductListItemComponent">-sanitizer: DomSanitizer</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductListItemComponent">-eventService: EventService</text>
+<text x="0.0" y="58.5" stroke="none" data-name="ProductListItemComponent">-cartService: CartService</text>
+
+</g>
+</g>
+<g transform="translate(21282, 533)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductListItemComponent">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductListItemComponent">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductListItemComponent">+imageUrl(): SafeResourceUrl</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductListItemComponent">+addToShoppingCart(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductListItemComponent">+ngOnInit(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="Cart">
+<g fill="#eee8d5" stroke="#33322E" data-name="Cart">
+<rect x="5667.0" y="23.0" height="273.0" width="323.0" data-name="Cart"></rect>
+<path d="M5667.0 54.0 L5990.0 54.0" fill="none" data-name="Cart"></path>
+<path d="M5667.0 190.0 L5990.0 190.0" fill="none" data-name="Cart"></path>
+</g>
+<g transform="translate(5667, 23)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Cart">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Cart">
+<a id="src\app\shared\models\cart.ts.Cart" xlink:href="src\app\shared\models\cart.ts"><text x="153.5" y="13.5" stroke="none" text-anchor="middle" data-name="Cart">Cart</text></a>
+
+</g>
+</g>
+<g transform="translate(5667, 54)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Cart">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Cart">
+<text x="0.0" y="13.5" stroke="none" data-name="Cart">+id: number | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Cart">+customerId: number | null | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Cart">+sessionId: string | undefined</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Cart">+price: number</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Cart">+discountedPrice: number</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Cart">+productCarts: ProductCart[]</text>
+<text x="0.0" y="103.5" stroke="none" data-name="Cart">+discounts: Discount[]</text>
+<text x="0.0" y="118.5" stroke="none" data-name="Cart">+coupon: Coupon | undefined</text>
+
+</g>
+</g>
+<g transform="translate(5667, 190)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Cart">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Cart">
+<text x="0.0" y="13.5" stroke="none" data-name="Cart">+getProductCount(): number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Cart">+persist(): void</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Cart">+static createFromLocalStorage(): Cart</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Cart">+addProduct(): void</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Cart">-addNewProductCart(): void</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Cart">+removeProduct(): void</text>
+
+</g>
+</g>
+</g>
+<g data-name="Coupon">
+<g fill="#eee8d5" stroke="#33322E" data-name="Coupon">
+<rect x="6030.0" y="109.0" height="100.0" width="263.0" data-name="Coupon"></rect>
+<path d="M6030.0 140.0 L6293.0 140.0" fill="none" data-name="Coupon"></path>
+<path d="M6030.0 201.0 L6293.0 201.0" fill="none" data-name="Coupon"></path>
+</g>
+<g transform="translate(6030, 109)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Coupon">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Coupon">
+<a id="src\app\shared\models\coupon.ts.Coupon" xlink:href="src\app\shared\models\coupon.ts"><text x="123.5" y="13.5" stroke="none" text-anchor="middle" data-name="Coupon">Coupon</text></a>
+
+</g>
+</g>
+<g transform="translate(6030, 140)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Coupon">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Coupon">
+<text x="0.0" y="13.5" stroke="none" data-name="Coupon">+id: number | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Coupon">+value: number | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Coupon">+couponKey: string | undefined</text>
+
+</g>
+</g>
+<g transform="translate(6030, 201)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Coupon">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Coupon">
+
+</g>
+</g>
+</g>
+<g data-name="Customer">
+<g fill="#eee8d5" stroke="#33322E" data-name="Customer">
+<rect x="6333.0" y="87.0" height="145.0" width="337.0" data-name="Customer"></rect>
+<path d="M6333.0 118.0 L6670.0 118.0" fill="none" data-name="Customer"></path>
+<path d="M6333.0 224.0 L6670.0 224.0" fill="none" data-name="Customer"></path>
+</g>
+<g transform="translate(6333, 87)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Customer">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Customer">
+<a id="src\app\shared\models\customer.ts.Customer" xlink:href="src\app\shared\models\customer.ts"><text x="160.5" y="13.5" stroke="none" text-anchor="middle" data-name="Customer">Customer</text></a>
+
+</g>
+</g>
+<g transform="translate(6333, 118)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Customer">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Customer">
+<text x="0.0" y="13.5" stroke="none" data-name="Customer">+id: Number | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Customer">+name: String | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Customer">+email: String | undefined</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Customer">+cartId: Number | undefined</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Customer">+creditCardNumber: String | undefined</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Customer">+creditCardExpiration: String | undefined</text>
+
+</g>
+</g>
+<g transform="translate(6333, 224)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Customer">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Customer">
+
+</g>
+</g>
+</g>
+<g data-name="Discount">
+<g fill="#eee8d5" stroke="#33322E" data-name="Discount">
+<rect x="6710.0" y="109.0" height="100.0" width="364.0" data-name="Discount"></rect>
+<path d="M6710.0 140.0 L7074.0 140.0" fill="none" data-name="Discount"></path>
+<path d="M6710.0 201.0 L7074.0 201.0" fill="none" data-name="Discount"></path>
+</g>
+<g transform="translate(6710, 109)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Discount">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Discount">
+<a id="src\app\shared\models\discount.ts.Discount" xlink:href="src\app\shared\models\discount.ts"><text x="174.0" y="13.5" stroke="none" text-anchor="middle" data-name="Discount">Discount</text></a>
+
+</g>
+</g>
+<g transform="translate(6710, 140)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Discount">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Discount">
+<text x="0.0" y="13.5" stroke="none" data-name="Discount">+id: number | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Discount">+discountAction: DiscountAction | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Discount">+discountRule: DiscountRule | undefined</text>
+
+</g>
+</g>
+<g transform="translate(6710, 201)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Discount">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Discount">
+
+</g>
+</g>
+</g>
+<g data-name="DiscountAction">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountAction">
+<rect x="7114.0" y="117.0" height="85.0" width="134.0" data-name="DiscountAction"></rect>
+<path d="M7114.0 148.0 L7248.0 148.0" fill="none" data-name="DiscountAction"></path>
+<path d="M7114.0 194.0 L7248.0 194.0" fill="none" data-name="DiscountAction"></path>
+</g>
+<g transform="translate(7114, 117)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountAction">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountAction">
+<a id="src\app\shared\models\discount.ts.DiscountAction" xlink:href="src\app\shared\models\discount.ts"><text x="59.0" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountAction">DiscountAction</text></a>
+
+</g>
+</g>
+<g transform="translate(7114, 148)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountAction">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountAction">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountAction">+id: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountAction">+name: string</text>
+
+</g>
+</g>
+<g transform="translate(7114, 194)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountAction">
+<g transform="translate(8, 8)" fill="#33322E" data-name="DiscountAction">
+
+</g>
+</g>
+</g>
+<g data-name="DiscountRule">
+<g fill="#eee8d5" stroke="#33322E" data-name="DiscountRule">
+<rect x="7288.0" y="117.0" height="85.0" width="124.0" data-name="DiscountRule"></rect>
+<path d="M7288.0 148.0 L7412.0 148.0" fill="none" data-name="DiscountRule"></path>
+<path d="M7288.0 194.0 L7412.0 194.0" fill="none" data-name="DiscountRule"></path>
+</g>
+<g transform="translate(7288, 117)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="DiscountRule">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="DiscountRule">
+<a id="src\app\shared\models\discount.ts.DiscountRule" xlink:href="src\app\shared\models\discount.ts"><text x="54.0" y="13.5" stroke="none" text-anchor="middle" data-name="DiscountRule">DiscountRule</text></a>
+
+</g>
+</g>
+<g transform="translate(7288, 148)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountRule">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="DiscountRule">
+<text x="0.0" y="13.5" stroke="none" data-name="DiscountRule">+id: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="DiscountRule">+name: string</text>
+
+</g>
+</g>
+<g transform="translate(7288, 194)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="DiscountRule">
+<g transform="translate(8, 8)" fill="#33322E" data-name="DiscountRule">
+
+</g>
+</g>
+</g>
+<g data-name="CreateDiscount">
+<g fill="lightblue" stroke="#33322E" data-name="CreateDiscount">
+<rect x="7452.0" y="117.0" height="85.0" width="160.0" data-name="CreateDiscount"></rect>
+<path d="M7452.0 148.0 L7612.0 148.0" fill="none" data-name="CreateDiscount"></path>
+<path d="M7452.0 194.0 L7612.0 194.0" fill="none" data-name="CreateDiscount"></path>
+</g>
+<g transform="translate(7452, 117)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CreateDiscount">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CreateDiscount">
+<a id="src\app\shared\models\discount.ts.CreateDiscount" xlink:href="src\app\shared\models\discount.ts"><text x="72.0" y="13.5" stroke="none" text-anchor="middle" data-name="CreateDiscount">CreateDiscount</text></a>
+
+</g>
+</g>
+<g transform="translate(7452, 148)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CreateDiscount">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="CreateDiscount">
+<text x="0.0" y="13.5" stroke="none" data-name="CreateDiscount">+ActionId: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="CreateDiscount">+RuleId: number</text>
+
+</g>
+</g>
+<g transform="translate(7452, 194)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="CreateDiscount">
+<g transform="translate(8, 8)" fill="#33322E" data-name="CreateDiscount">
+
+</g>
+</g>
+</g>
+<g data-name="Order">
+<g fill="#eee8d5" stroke="#33322E" data-name="Order">
+<rect x="7652.0" y="87.0" height="145.0" width="285.0" data-name="Order"></rect>
+<path d="M7652.0 118.0 L7937.0 118.0" fill="none" data-name="Order"></path>
+<path d="M7652.0 224.0 L7937.0 224.0" fill="none" data-name="Order"></path>
+</g>
+<g transform="translate(7652, 87)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Order">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Order">
+<a id="src\app\shared\models\order.ts.Order" xlink:href="src\app\shared\models\order.ts"><text x="134.5" y="13.5" stroke="none" text-anchor="middle" data-name="Order">Order</text></a>
+
+</g>
+</g>
+<g transform="translate(7652, 118)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Order">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Order">
+<text x="0.0" y="13.5" stroke="none" data-name="Order">+id: Number | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Order">+cartId: Number | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Order">+discount: Number | undefined</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Order">+orderDate: Date | undefined</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Order">+cart: Cart | undefined</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Order">+discounts: Discount[] | undefined</text>
+
+</g>
+</g>
+<g transform="translate(7652, 224)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Order">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Order">
+
+</g>
+</g>
+</g>
+<g data-name="Product">
+<g fill="#eee8d5" stroke="#33322E" data-name="Product">
+<rect x="7977.0" y="87.0" height="145.0" width="261.0" data-name="Product"></rect>
+<path d="M7977.0 118.0 L8238.0 118.0" fill="none" data-name="Product"></path>
+<path d="M7977.0 224.0 L8238.0 224.0" fill="none" data-name="Product"></path>
+</g>
+<g transform="translate(7977, 87)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Product">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Product">
+<a id="src\app\shared\models\product.ts.Product" xlink:href="src\app\shared\models\product.ts"><text x="122.5" y="13.5" stroke="none" text-anchor="middle" data-name="Product">Product</text></a>
+
+</g>
+</g>
+<g transform="translate(7977, 118)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Product">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="Product">
+<text x="0.0" y="13.5" stroke="none" data-name="Product">+id: number | undefined</text>
+<text x="0.0" y="28.5" stroke="none" data-name="Product">+shopId: number | undefined</text>
+<text x="0.0" y="43.5" stroke="none" data-name="Product">+description: string | undefined</text>
+<text x="0.0" y="58.5" stroke="none" data-name="Product">+imageUrl: string | undefined</text>
+<text x="0.0" y="73.5" stroke="none" data-name="Product">+label: string | undefined</text>
+<text x="0.0" y="88.5" stroke="none" data-name="Product">+price: number | undefined</text>
+
+</g>
+</g>
+<g transform="translate(7977, 224)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="Product">
+<g transform="translate(8, 8)" fill="#33322E" data-name="Product">
+
+</g>
+</g>
+</g>
+<g data-name="ProductCart">
+<g fill="#eee8d5" stroke="#33322E" data-name="ProductCart">
+<rect x="8278.0" y="109.0" height="100.0" width="251.0" data-name="ProductCart"></rect>
+<path d="M8278.0 140.0 L8529.0 140.0" fill="none" data-name="ProductCart"></path>
+<path d="M8278.0 201.0 L8529.0 201.0" fill="none" data-name="ProductCart"></path>
+</g>
+<g transform="translate(8278, 109)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ProductCart">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ProductCart">
+<a id="src\app\shared\models\productcart.ts.ProductCart" xlink:href="src\app\shared\models\productcart.ts"><text x="117.5" y="13.5" stroke="none" text-anchor="middle" data-name="ProductCart">ProductCart</text></a>
+
+</g>
+</g>
+<g transform="translate(8278, 140)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductCart">
+<g transform="translate(8, 8)" fill="#33322E" text-align="left" data-name="ProductCart">
+<text x="0.0" y="13.5" stroke="none" data-name="ProductCart">+price: number</text>
+<text x="0.0" y="28.5" stroke="none" data-name="ProductCart">+amount: number</text>
+<text x="0.0" y="43.5" stroke="none" data-name="ProductCart">+product: Product | undefined</text>
+
+</g>
+</g>
+<g transform="translate(8278, 201)" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal" data-name="ProductCart">
+<g transform="translate(8, 8)" fill="#33322E" data-name="ProductCart">
+
+</g>
+</g>
+</g>
+<g data-name="HttpInterceptor">
+<g fill="#eee8d5" stroke="#33322E" data-name="HttpInterceptor">
+<rect x="8569.0" y="144.0" height="31.0" width="134.0" data-name="HttpInterceptor"></rect>
+</g>
+<g transform="translate(8569, 144)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="HttpInterceptor">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="HttpInterceptor">
+<text x="59.0" y="13.5" stroke="none" text-anchor="middle" data-name="HttpInterceptor">HttpInterceptor</text>
+
+</g>
+</g>
+</g>
+<g data-name="OnInit">
+<g fill="#eee8d5" stroke="#33322E" data-name="OnInit">
+<rect x="15575.0" y="144.0" height="31.0" width="63.0" data-name="OnInit"></rect>
+</g>
+<g transform="translate(15575, 144)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OnInit">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OnInit">
+<text x="23.5" y="13.5" stroke="none" text-anchor="middle" data-name="OnInit">OnInit</text>
+
+</g>
+</g>
+</g>
+<g data-name="CanActivate">
+<g fill="#eee8d5" stroke="#33322E" data-name="CanActivate">
+<rect x="21906.0" y="144.0" height="31.0" width="111.0" data-name="CanActivate"></rect>
+</g>
+<g transform="translate(21906, 144)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="CanActivate">
+<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="CanActivate">
+<text x="47.5" y="13.5" stroke="none" text-anchor="middle" data-name="CanActivate">CanActivate</text>
+
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>

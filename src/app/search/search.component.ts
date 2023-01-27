@@ -25,7 +25,12 @@ export class SearchComponent implements OnInit {
       debounceTime(500),
       distinctUntilChanged(),
       tap(() => this.isLoading = true),
-      switchMap(searchTerm => this.productStoreService.search(searchTerm)),
+      /** we are loading full product information here
+       * we should just fetch names and fetch the full product information in the product-list,
+       * but the service does not offer such a endpoint
+       * therefore this is for demonstration purpose
+       */
+      switchMap(searchTerm => this.productStoreService.search(searchTerm, 0, 10)),
       tap(() => this.isLoading = false)
       ).subscribe(products => this.foundProducts = products);
   }

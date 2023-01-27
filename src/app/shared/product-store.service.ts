@@ -17,15 +17,21 @@ export class ProductStoreService {
     return of(error);
   }
 
-  getAll(): Observable<Product[]> {
+  getAll(offset: Number, count: Number): Observable<Product[]> {
     return this.http.get<Product[]>(
-      `/api/shop/${environment.shopId}/products`)
+      `/api/shop/${environment.shopId}/products?offset=${offset}&count=${count}`)
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
   }
 
-  search(filter: String): Observable<Product[]> {
+  getProductsCount(filter: String): Observable<number> {
     return this.http.get<Product[]>(
-      `/api/shop/${environment.shopId}/products?filter=${filter}`)
+      `/api/shop/${environment.shopId}/products/count?filter=${filter}`)
+      .pipe(map<any, number>(res => res.count), catchError(this.errorHandler));
+  }
+
+  search(filter: String, offset: Number, count: Number): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      `/api/shop/${environment.shopId}/products?filter=${filter}&offset=${offset}&count=${count}`)
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));
   }
 
@@ -35,7 +41,7 @@ export class ProductStoreService {
   }
 
   postProduct(product: Product): Observable<any> {
-    const {id, ...createProduct } = product;
+    const { id, ...createProduct } = product;
 
     return this.http.post<Product>(`/api/product`, createProduct)
       .pipe(map<any, Product[]>(res => res), catchError(this.errorHandler));

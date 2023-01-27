@@ -1,0 +1,19 @@
+<div class="d-grid gap-3">
+    <h1>Products</h1>
+    <div class="item-list-search-wrapper">
+        <app-search></app-search>
+    </div>
+
+    <nav aria-label="Product navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" *ngFor="let number of paginationItems" [ngClass]="offset == number ? 'active' : ''">
+                <a class="page-link" routerLink="/products" [queryParams]="{offset: number, filter: filter}">{{ number +
+                    1 }}</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="app-product-list-item" *ngFor="let p of products">
+        <app-product-list-item [product]=p></app-product-list-item>
+    </div>
+</div>

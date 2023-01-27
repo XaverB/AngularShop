@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthCallbackComponent } from './authcallback/authcallback.component';
 import { CanNavigateToUserGuard } from './CanNavigateToUserGuard';
-import { CartOverviewComponent } from './cart-overview/cart-overview.component';
-import { ProductDetailEditComponent } from './product-detail-edit/product-detail-edit.component';
+import { CartOverviewComponent } from './cart/cart-overview/cart-overview.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { OrderListComponent } from './order-list/order-list.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
 import { PaymentComponent } from './payment/payment.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { AdminDiscountOverviewComponent } from './admin-discount-overview/admin-discount-overview.component';
-import { AdminDiscountFormComponent } from './admin-discount-form/admin-discount-form.component';
-import { DiscountActionFormComponent } from './discount-action-form/discount-action-form.component';
-import { DiscountRuleFormComponent } from './discount-rule-form/discount-rule-form.component';
+import { DiscountActionFormComponent } from './discount/discount-action-form/discount-action-form.component';
+import { AdminDiscountFormComponent } from './admin/admin-discount-form/admin-discount-form.component';
+import { AdminDiscountOverviewComponent } from './admin/admin-discount-overview/admin-discount-overview.component';
+import { DiscountRuleFormComponent } from './discount/discount-rule-form/discount-rule-form.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductDetailEditComponent } from './product/product-detail-edit/product-detail-edit.component';
 
 const routes: Routes = [
   {
