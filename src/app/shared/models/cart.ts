@@ -1,3 +1,4 @@
+import { environment } from "src/environments/environment";
 import { Coupon } from "./coupon";
 import { Discount } from "./discount";
 import { Product } from "./product";
@@ -21,11 +22,11 @@ export class Cart {
     }
 
     public persist() {
-        localStorage.setItem('cart', JSON.stringify(this));
+        localStorage.setItem(`cart_${environment.shopId.toString()}`, JSON.stringify(this));
     }
 
     public static createFromLocalStorage(): Cart {
-        const cartJson = localStorage.getItem('cart');
+        const cartJson = localStorage.getItem(`cart_${environment.shopId.toString()}`);
         if (!cartJson) return new Cart();
 
         return Object.assign(new Cart(), JSON.parse(cartJson));

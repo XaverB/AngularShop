@@ -29,7 +29,7 @@ export class CartStoreService {
     return this.http.get<Cart>(`/api/cart/${sessionId}`)
       .pipe(
         map(res => Object.assign(new Cart(), res)),
-        tap(cart => localStorage.setItem(this.LOCAL_STORAGE_CART, JSON.stringify(cart))),
+        tap(cart => localStorage.setItem(`${this.LOCAL_STORAGE_CART}_${environment.shopId.toString()}`, JSON.stringify(cart))),
         catchError(this.errorHandler));
   }
 
@@ -38,7 +38,7 @@ export class CartStoreService {
     
     .pipe(
       map(res => Object.assign(new Cart(), res)),
-      tap(cart => localStorage.setItem(this.LOCAL_STORAGE_CART, JSON.stringify(cart))),
+      tap(cart => localStorage.setItem(`${this.LOCAL_STORAGE_CART}_${environment.shopId.toString()}`, JSON.stringify(cart))),
       catchError(this.errorHandler));
   }
 

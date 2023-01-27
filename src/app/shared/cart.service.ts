@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { EventType, Router } from '@angular/router';
 import { OAuthEvent, OAuthService } from 'angular-oauth2-oidc';
 import { catchError, forkJoin, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthenticationService } from './authentication.service';
 import { CartStoreService } from './cart-store.service';
 import { EventService } from './event.service';
@@ -80,7 +81,7 @@ export class CartService {
 
 
   public newCart() {
-    localStorage.removeItem('cart');
+    localStorage.removeItem(`cart_${environment.shopId.toString()}`);
     this.initializeCart();
   }
 

@@ -58,6 +58,34 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "shop1": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.shop1.ts"
+                }
+              ]
+            },
+            "shop2": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.shop2.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -73,6 +101,12 @@
             },
             "development": {
               "browserTarget": "xavers-shop:build:development"
+            },
+            "shop1": {
+              "browserTarget": "xavers-shop:build:shop1"
+            },
+            "shop2": {
+              "browserTarget": "xavers-shop:build:shop2"
             }
           },
           "defaultConfiguration": "development"
